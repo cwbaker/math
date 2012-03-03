@@ -471,6 +471,17 @@ inline mat4x4 renderman_perspective( float l, float r, float b, float t, float n
     );    
 }
 
+inline vec4 renderman_project( const math::mat4x4& screen_transform, float width, float height, const math::vec3& point )
+{
+    vec4 xx = screen_transform * vec4( point, 1.0f );
+    return vec4(
+        (xx.x / (2.0f * xx.w) + 0.5f) * width,
+        (1.0f - (xx.y / (2.0f * xx.w) + 0.5f)) * height,
+        xx.w,
+        1.0f / xx.w
+    );
+}
+
 }
 
 }
