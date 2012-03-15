@@ -25,6 +25,7 @@ struct mat3x3
 
     inline mat3x3();
     inline mat3x3( float m00, float m01, float m02, float m10, float m11, float m12, float m20, float m21, float m22 );
+    inline mat3x3( const mat4x4& m );
     inline operator float*();
     inline operator const float*() const;
 };

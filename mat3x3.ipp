@@ -1,12 +1,13 @@
 //
 // mat3x3.ipp
-// Copyright (c) 2008 - 2011 Charles Baker.  All rights reserved.
+// Copyright (c) 2008 - 2012 Charles Baker.  All rights reserved.
 //
 
 #ifndef SWEET_MATH_MAT3X3_IPP_INCLUDED
 #define SWEET_MATH_MAT3X3_IPP_INCLUDED
 
 #include "mat3x3.hpp"
+#include "mat4x4.hpp"
 #include "vec3.ipp"
 #include "quat.ipp"
 
@@ -42,6 +43,25 @@ inline mat3x3::mat3x3( float m00, float m01, float m02, float m10, float m11, fl
     m[6] = m20;
     m[7] = m21;
     m[8] = m22;
+}
+
+/**
+// Construct a mat3x3 from the upper 3x3 entries of a mat4x4.
+//
+// @param m
+//  The mat4x4 to initialize this mat3x3 from.
+*/
+inline mat3x3::mat3x3( const mat4x4& mm )
+{
+    m[0] = mm.m[0];
+    m[1] = mm.m[1];
+    m[2] = mm.m[2];
+    m[3] = mm.m[4];
+    m[4] = mm.m[5];
+    m[5] = mm.m[6];
+    m[6] = mm.m[8];
+    m[7] = mm.m[9];
+    m[8] = mm.m[10];
 }
 
 /**
