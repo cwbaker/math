@@ -14,6 +14,7 @@ Executable {
         "TestQuat.cpp",
         "TestVec2.cpp",
         "TestVec3.cpp",
-        "TestVec4.cpp"
+        "TestVec4.cpp",
+        "TestFloatx4.cpp"
     };
 }
