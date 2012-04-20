@@ -50,6 +50,16 @@ inline vec3 vec3::operator-() const
     return vec3( -x, -y, -z );
 }
 
+inline bool operator==( const vec3& lhs, const vec3& rhs )
+{
+    return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z;
+}
+
+inline bool operator!=( const vec3& lhs, const vec3& rhs )
+{
+    return lhs.x != rhs.x || lhs.y != rhs.y || lhs.z != rhs.z;
+}
+
 inline vec3 operator+( const vec3& lhs, const vec3& rhs )
 {
     return vec3( lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z );

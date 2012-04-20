@@ -34,6 +34,8 @@ struct vec3
     template <class Archive> void persist( Archive& archive );
 };
 
+inline bool operator==( const vec3& lhs, const vec3& rhs );
+inline bool operator!=( const vec3& lhs, const vec3& rhs );
 inline vec3 operator+( const vec3& lhs, const vec3& rhs );
 inline vec3 operator-( const vec3& lhs, const vec3& rhs );
 inline vec3 operator*( float lhs, const vec3& rhs );
