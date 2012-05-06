@@ -30,6 +30,7 @@ struct vec3
     inline vec3( float xx, float yy, float zz );
     inline vec3( const vec4& v );    
     vec3& operator+=( const vec3& v );
+    vec3& operator*=( const vec3& v );
     vec3 operator-() const;
     template <class Archive> void persist( Archive& archive );
 };

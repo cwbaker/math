@@ -45,6 +45,14 @@ inline vec3& vec3::operator+=( const vec3& v )
     return *this;
 }
 
+inline vec3& vec3::operator*=( const vec3& v )
+{
+    x *= v.x;
+    y *= v.y;
+    z *= v.z;
+    return *this;
+}
+
 inline vec3 vec3::operator-() const
 {
     return vec3( -x, -y, -z );
