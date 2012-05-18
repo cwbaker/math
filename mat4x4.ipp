@@ -410,7 +410,7 @@ inline mat4x4 perspective( float l, float r, float b, float t, float n, float f 
 }
 
 /**
-// Perspective projetion.
+// Perspective projection.
 //
 // This is a projection of right handed view space looking down +ive z
 // into a left handed normalized device coordinate space with z in the 
@@ -438,6 +438,23 @@ inline mat4x4 direct3d_perspective( float l, float r, float b, float t, float n,
                        0.0f,               0.0f,        f / (f - n), -f * n / (f - n),
                        0.0f,               0.0f,               1.0f,             0.0f
     );    
+}
+
+/**
+// Orthographic projection ala RenderMan.
+//
+// This is a projection of a left handed camera space looking down +ive z into
+// a left handed screen space with z in the range [0, 1] ala the screen space
+// specified in the RenderMan standard.
+*/
+inline mat4x4 renderman_orthographic( float l, float r, float b, float t, float n, float f )
+{
+    return mat4x4(
+        2.0f / (r - l), 0.0f,           0.0f,           -(r + l) / (r - l),
+        0.0f,           2.0f / (t - b), 0.0f,           -(t + b) / (t - b),
+        0.0f,           0.0f,           1.0f / (f - n), -n / (f - n),
+        0.0f,           0.0f,           0.0f,           1.0f
+    );
 }
 
 /**
@@ -477,8 +494,8 @@ inline vec4 renderman_project( const math::mat4x4& screen_transform, float width
     return vec4(
         (xx.x / (2.0f * xx.w) + 0.5f) * width,
         (1.0f - (xx.y / (2.0f * xx.w) + 0.5f)) * height,
-        xx.w,
-        1.0f / xx.w
+        xx.z / xx.w,
+        xx.w
     );
 }
 
