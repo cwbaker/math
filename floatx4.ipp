@@ -89,6 +89,11 @@ inline floatx4 zzzz_swizzle( floatx4 a )
     return _mm_shuffle_ps( a, a, _MM_SHUFFLE(2, 2, 2, 2) );
 }
 
+inline floatx4 wwww_swizzle( floatx4 a )
+{
+    return _mm_shuffle_ps( a, a, _MM_SHUFFLE(3, 3, 3, 3) );
+}
+
 inline floatx4 load_floatx4( const float* a )
 {
     SWEET_ASSERT( a );
