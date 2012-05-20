@@ -220,7 +220,7 @@ inline floatx4 andnot( floatx4 a, floatx4 b )
 
 inline floatx4 dot3( floatx4 a, floatx4 b )
 {
-    return _mm_dp_ps( a, b, 0x77 );
+    return _mm_dp_ps( a, b, 0x7f );
 }
 
 inline floatx4 dot( floatx4 a, floatx4 b )
