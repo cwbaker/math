@@ -345,6 +345,19 @@ inline mat4x4 scale( float sx, float sy, float sz )
 }
 
 /**
+// Scale by \e ss.
+*/
+inline mat4x4 scale( const vec3& ss )
+{
+    return mat4x4( 
+        ss.x, 0.0f, 0.0f, 0.0f,
+        0.0f, ss.y, 0.0f, 0.0f, 
+        0.0f, 0.0f, ss.z, 0.0f,
+        0.0f, 0.0f, 0.0f, 1.0f
+    );
+}
+
+/**
 // Shear by \e hx, \e hy, and \e hz.
 //
 // The shear is placed in the third column of the matrix and corresponds

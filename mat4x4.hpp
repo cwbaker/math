@@ -45,6 +45,7 @@ inline mat4x4 rotate( const quat& q );
 inline mat4x4 translate( float tx, float ty, float tz );
 inline mat4x4 translate( const vec3& tt );
 inline mat4x4 scale( float sx, float sy, float sz );
+inline mat4x4 scale( const vec3& ss );
 inline mat4x4 shear( float hx, float hy, float hz );
 inline mat4x4 look_at( const vec3& at, const vec3& eye, const vec3& up );
 inline mat4x4 orthogonal( float l, float r, float b, float t, float n, float f );
