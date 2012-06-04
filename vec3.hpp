@@ -44,6 +44,8 @@ inline vec3 operator*( const vec3& lhs, float rhs );
 inline vec3 operator*( const vec3& lhs, const vec3& rhs );
 inline vec3 operator/( float scalar, const vec3& rhs );
 inline vec3 operator/( const vec3& lhs, float scalar );
+inline vec3 rgb_from_hsv( const vec3& hsv );
+inline vec3 rgb_from_hsl( const vec3& hsl );
 inline float length( const vec3& v );
 inline float dot( const vec3& lhs, const vec3& rhs );
 inline vec3 cross( const vec3& lhs, const vec3& rhs );

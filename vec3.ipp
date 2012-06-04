@@ -107,6 +107,108 @@ inline vec3 operator/( const vec3& lhs, float rhs )
     return (1.0f / rhs) * lhs;
 }
 
+/**
+// Convert a color in HSV space to RGB space (H is [0, 360]).
+//
+// @param hsv
+//  The HSV color to convert to RGB.  The hue value is expected to 
+//  be in [0, 360].
+//
+// @return
+//  The RGB color.
+*/
+inline vec3 rgb_from_hsv( const vec3& hsv )
+{
+    const float c = hsv.y * hsv.z;
+    const float h = hsv.x / 60.0f;
+    const float x = c * (1.0f - fabsf(fmodf(h, 2.0f) - 1.0f));
+    const float m = hsv.z - c;
+    
+    vec3 rgb( m, m, m );
+    switch ( int(floorf(h)) )
+    {
+        case 0:
+            rgb += vec3( c, x, 0.0f );
+            break;
+            
+        case 1:
+            rgb += vec3( x, c, 0.0f  );
+            break;
+            
+        case 2:
+            rgb += vec3( 0.0f, c, x );
+            break;
+            
+        case 3:
+            rgb += vec3( 0.0f, x, c );
+            break;
+            
+        case 4:
+            rgb += vec3( x, 0.0f, c );
+            break;
+            
+        case 5:
+            rgb += vec3( c, 0.0f, x );
+            break;
+            
+        default:
+            SWEET_ASSERT( false );
+            break;
+    }
+    return rgb;
+}
+
+/**
+// Convert a color in HSL space to RGB space (H is [0, 360]).
+//
+// @param hsl
+//  The HSL color to convert to RGB.  The hue value is expected to 
+//  be in [0, 360].
+//
+// @return
+//  The RGB color.
+*/
+inline vec3 rgb_from_hsl( const vec3& hsl )
+{
+    const float c = (1.0f - fabsf(2.0f * hsl.z - 1.0f)) * hsl.y;
+    const float h = hsl.x / 60.0f;
+    const float x = c * (1.0f - fabsf(fmodf(h, 2.0f) - 1.0f));
+    const float m = hsl.z - 0.5f * c;
+    
+    vec3 rgb( m, m, m );
+    switch ( int(floorf(h)) )
+    {
+        case 0:
+            rgb += vec3( c, x, 0.0f );
+            break;
+            
+        case 1:
+            rgb += vec3( x, c, 0.0f  );
+            break;
+            
+        case 2:
+            rgb += vec3( 0.0f, c, x );
+            break;
+            
+        case 3:
+            rgb += vec3( 0.0f, x, c );
+            break;
+            
+        case 4:
+            rgb += vec3( x, 0.0f, c );
+            break;
+            
+        case 5:
+            rgb += vec3( c, 0.0f, x );
+            break;
+            
+        default:
+            SWEET_ASSERT( false );
+            break;
+    }
+    return rgb;
+}
+
 inline float length( const vec3& v )
 {
     return ::sqrtf( v.x * v.x + v.y * v.y + v.z * v.z );
