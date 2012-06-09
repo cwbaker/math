@@ -1,12 +1,13 @@
 //
 // scalar.ipp
-// Copyright (c) 2010 - 2011 Charles Baker.  All rights reserved.
+// Copyright (c) 2010 - 2012 Charles Baker.  All rights reserved.
 //
 
 #ifndef SWEET_MATH_SCALAR_IPP_INCLUDED
 #define SWEET_MATH_SCALAR_IPP_INCLUDED
 
 #include <sweet/assert/assert.hpp>
+#include <math.h>
 
 namespace sweet
 {
@@ -33,6 +34,11 @@ inline float lerp( float x, float y, float t )
 inline float sign( float x )
 {
     return x >= 0.0f ? 1.0f : -1.0f;
+}
+
+inline float round( float x )
+{
+    return floorf( x + 0.5f );
 }
 
 }
