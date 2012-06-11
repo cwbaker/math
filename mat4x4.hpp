@@ -52,6 +52,7 @@ inline mat4x4 orthogonal( float l, float r, float b, float t, float n, float f )
 inline mat4x4 perspective( float l, float r, float b, float t, float n, float f );
 inline mat4x4 direct3d_perspective( float fovy, float aspect, float n, float f );
 inline mat4x4 direct3d_perspective( float l, float r, float b, float t, float n, float f );
+inline mat4x4 renderman_orthographic( float l, float r, float b, float t, float n, float f );
 inline mat4x4 renderman_perspective( float fovx, float aspect, float n, float f );
 inline mat4x4 renderman_perspective( float l, float r, float b, float t, float n, float f );
 inline vec4 renderman_project( const math::mat4x4& transform, float width, float height, const math::vec4& point );
