@@ -7,6 +7,7 @@
 #define SWEET_MATH_SCALAR_IPP_INCLUDED
 
 #include <sweet/assert/assert.hpp>
+#define _USE_MATH_DEFINES
 #include <math.h>
 
 namespace sweet
@@ -39,6 +40,16 @@ inline float sign( float x )
 inline float round( float x )
 {
     return floorf( x + 0.5f );
+}
+
+inline float radians( float degrees )
+{
+    return degrees * float(M_PI) / 180.0f;
+}
+
+inline float degrees( float radians )
+{
+    return radians * 180.0f / float(M_PI);
 }
 
 }
