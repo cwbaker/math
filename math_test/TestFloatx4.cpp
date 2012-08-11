@@ -6,7 +6,7 @@
 
 #include "stdafx.hpp"
 
-#if defined(BUILD_OS_WINDOWS)
+#if defined(BUILD_PLATFORM_MSVC)
 #include <sweet/unit/UnitTest.h>
 #include <sweet/math/vec3.ipp>
 #include <sweet/math/floatx4.ipp>
