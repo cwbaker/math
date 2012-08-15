@@ -15,6 +15,7 @@ namespace math
 struct vec3;
 struct vec4;
 struct quat;
+struct mat4x4;
 
 /**
 // A 4x4 matrix of floats.
