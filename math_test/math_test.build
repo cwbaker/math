@@ -3,8 +3,8 @@ Executable {
     id = "math_test";
     
     libraries = {
-        "assert/assert", 
-        "unit/libUnitTest"
+        "sweet/assert/assert", 
+        "sweet/unit/libUnitTest"
     };
 
     Source {
