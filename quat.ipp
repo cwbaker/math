@@ -8,6 +8,7 @@
 
 #include <math.h>
 #include "quat.hpp"
+#include "vec3.hpp"
 
 namespace sweet
 {
