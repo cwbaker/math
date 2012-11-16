@@ -32,6 +32,12 @@ inline float lerp( float x, float y, float t )
     return x + (y - x) * t;
 }
 
+inline float smooth( float t )
+{
+    SWEET_ASSERT( t >= 0.0f && t <= 1.0f );
+    return (1.0f - cosf(t * float(M_PI))) / 2.0f;
+}
+
 inline float sign( float x )
 {
     return x >= 0.0f ? 1.0f : -1.0f;
