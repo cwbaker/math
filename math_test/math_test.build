@@ -1,7 +1,5 @@
 
-Executable {
-    id = "math_test";
-    
+Executable "math_test" {
     libraries = {
         "sweet/assert/assert", 
         "sweet/unit/libUnitTest"
