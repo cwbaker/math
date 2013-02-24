@@ -5,7 +5,7 @@ Executable "math_test" {
         "sweet/unit/libUnitTest"
     };
 
-    Source {
+    Cxx {
         pch = "stdafx.hpp";
         "main.cpp",
         "TestMat4x4.cpp",
