@@ -1,6 +1,6 @@
 //
 // quat.ipp
-// Copyright (c) 2008 - 2011 Charles Baker.  All rights reserved.
+// Copyright (c) 2008 - 2013 Charles Baker.  All rights reserved.
 //
 
 #ifndef SWEET_MATH_QUAT_IPP_INCLUDED
@@ -8,7 +8,7 @@
 
 #include <math.h>
 #include "quat.hpp"
-#include "vec3.hpp"
+#include "vec3.ipp"
 
 namespace sweet
 {
