@@ -2,4 +2,7 @@
 buildfile "math_test/math_test.build";
 
 Library "math" {
+    project_files = {
+        "%.[chi]pp"
+    };
 }
