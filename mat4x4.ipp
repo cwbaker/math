@@ -394,6 +394,10 @@ inline mat4x4 look_at( const vec3& at, const vec3& eye, const vec3& up )
 
 /**
 // Orthogonal projection.
+//
+// This is a projection of right handed view space into a left handed 
+// normalized device coordinate space with z in the range of [-1, 1] ala
+// OpenGL.
 */
 inline mat4x4 orthogonal( float l, float r, float b, float t, float n, float f )
 {
