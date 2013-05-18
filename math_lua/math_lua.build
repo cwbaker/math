@@ -1,6 +1,7 @@
 
 Library "math_lua" {
     Cxx {
+        "LuaMath.cpp",
         "LuaVec2.cpp",
         "LuaVec3.cpp",
         "LuaQuat.cpp"
