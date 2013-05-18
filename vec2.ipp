@@ -40,6 +40,11 @@ inline vec2& vec2::operator+=( const vec2& v )
     return *this;
 }
 
+inline vec2 vec2::operator-() const
+{
+    return vec2( -x, -y );
+}
+
 inline vec2 operator+( const vec2& lhs, const vec2& rhs )
 {
     return vec2( lhs.x + rhs.x, lhs.y + rhs.y );
