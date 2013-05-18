@@ -1,4 +1,5 @@
 
+buildfile "math_lua/math_lua.build";
 buildfile "math_test/math_test.build";
 
 Library "math" {

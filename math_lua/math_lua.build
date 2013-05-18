@@ -1,0 +1,8 @@
+
+Library "math_lua" {
+    Cxx {
+        "LuaVec2.cpp",
+        "LuaVec3.cpp",
+        "LuaQuat.cpp"
+    }
+}
