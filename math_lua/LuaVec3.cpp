@@ -32,6 +32,7 @@ LuaVec3::LuaVec3( lua::Lua& lua )
         ( "lerp", raw(&LuaVec3::lerp), this )
         ( "normalize", raw(&LuaVec3::normalize), this )
         ( "length", raw(&LuaVec3::length), this )
+        ( "dot", raw(&LuaVec3::dot), this )
     ;
     
     vec3_metatable_->members()
@@ -216,8 +217,17 @@ int LuaVec3::length( lua_State* lua_state )
 
     const int V = 1;
     const math::vec3& v = lua_to_value<math::vec3>( lua_state, V );
-    LuaVec3* lua_vec3 = reinterpret_cast<LuaVec3*>( lua_touserdata(lua_state, lua_upvalueindex(1)) );
-    SWEET_ASSERT( lua_vec3 );
     lua_pushnumber( lua_state, math::length(v) );
     return 1;
+}
+
+int LuaVec3::dot( lua_State* lua_state )
+{
+    SWEET_ASSERT( lua_state );
+
+    const int LHS = 1;
+    const int RHS = 2;
+    const math::vec3& lhs = lua_to_value<math::vec3>( lua_state, LHS );
+    const math::vec3& rhs = lua_to_value<math::vec3>( lua_state, RHS );
+    lua_pushnumber( lua_state, math::dot(lhs, rhs) );    
 }
