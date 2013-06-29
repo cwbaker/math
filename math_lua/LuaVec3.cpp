@@ -229,5 +229,6 @@ int LuaVec3::dot( lua_State* lua_state )
     const int RHS = 2;
     const math::vec3& lhs = lua_to_value<math::vec3>( lua_state, LHS );
     const math::vec3& rhs = lua_to_value<math::vec3>( lua_state, RHS );
-    lua_pushnumber( lua_state, math::dot(lhs, rhs) );    
+    lua_pushnumber( lua_state, math::dot(lhs, rhs) );
+    return 1;  
 }
