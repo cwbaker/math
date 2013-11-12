@@ -61,7 +61,7 @@ void LuaQuat::push_quat( lua_State* lua_state, const math::quat& q )
 {
     SWEET_ASSERT( lua_state );
     math::quat* qq = reinterpret_cast<math::quat*>( lua_newuserdata(lua_state, sizeof(lua::LuaUserDataTemplate<math::quat>)) );
-    new (qq) lua::LuaUserDataTemplate<math::quat>( SWEET_STATIC_TYPEID(math::vec3), q );
+    new (qq) lua::LuaUserDataTemplate<math::quat>( SWEET_STATIC_TYPEID(math::quat), q );
     lua_push_object( lua_state, quat_metatable_ );
     lua_setmetatable( lua_state, -2 );    
 }
