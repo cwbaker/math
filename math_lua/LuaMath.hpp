@@ -27,8 +27,9 @@ class LuaMath
     math::LuaMat4x4* lua_mat4x4_;
 
 public:
-    LuaMath( lua::Lua& lua );
+    LuaMath();
     ~LuaMath();
+    void create( lua::Lua* lua );
     math::LuaVec2* lua_vec2() const;
     math::LuaVec3* lua_vec3() const;
     math::LuaQuat* lua_quat() const;
