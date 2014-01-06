@@ -146,7 +146,7 @@ int LuaMat4x4::translate( lua_State* lua_state )
     float tz = lua_tonumber( lua_state, TZ );
     LuaMat4x4* lua_mat4x4 = reinterpret_cast<LuaMat4x4*>( lua_touserdata(lua_state, lua_upvalueindex(1)) );
     SWEET_ASSERT( lua_mat4x4 );
-    lua_mat4x4->push_mat4x4( lua_state, math::scale(tx, ty, tz) );
+    lua_mat4x4->push_mat4x4( lua_state, math::translate(tx, ty, tz) );
     return 1;
 }
 
