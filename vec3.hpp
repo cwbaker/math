@@ -51,6 +51,7 @@ inline float dot( const vec3& lhs, const vec3& rhs );
 inline vec3 cross( const vec3& lhs, const vec3& rhs );
 inline vec3 normalize( const vec3& v );
 inline vec3 lerp( const vec3& v0, const vec3& v1, float t );
+inline vec3 round( const vec3& v0 );
 inline float intersect_line_plane( const vec3& p, const vec3& n, const vec3& o, const vec3& d );
 inline float intersect_line_sphere( const vec3& p, float r, const vec3& o, const vec3& d );
 inline vec2 project_line_plane( const math::vec3& p, const math::vec3& i, const math::vec3& j, const math::vec3& k, const math::vec3& o, const math::vec3& d );

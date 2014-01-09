@@ -244,6 +244,11 @@ inline vec3 lerp( const vec3& v0, const vec3& v1, float t )
     );
 }
 
+inline vec3 round( const vec3& v0 )
+{
+    return vec3( floorf(v0.x + 0.5f), floorf(v0.y + 0.5f), floorf(v0.z + 0.5f) );
+}
+
 inline float intersect_line_plane( const vec3& p, const vec3& n, const vec3& o, const vec3& d )
 {
     return dot( d, n ) != 0.0f ? (dot(p, n) - dot(o, n)) / dot(d, n) : FLT_MAX;
