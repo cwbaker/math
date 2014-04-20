@@ -2,7 +2,7 @@
 Executable "math_test" {
     libraries = {
         "sweet/assert/assert", 
-        "sweet/unit/libUnitTest"
+        "unit/libUnitTest"
     };
 
     Cxx {
