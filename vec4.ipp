@@ -1,6 +1,6 @@
 //
 // vec4.ipp
-// Copyright (c) 2008 - 2011 Charles Baker.  All rights reserved.
+// Copyright (c) 2008 - 2014 Charles Baker.  All rights reserved.
 //
 
 #ifndef SWEET_MATH_VEC4_IPP_INCLUDED
@@ -46,6 +46,15 @@ inline vec4& vec4::operator+=( const vec4& v )
     return *this;
 }
 
+inline vec4& vec4::operator*=( const vec4& v )
+{
+    x *= v.x;
+    y *= v.y;
+    z *= v.z;
+    w *= v.w;
+    return *this;
+}
+
 inline vec4& vec4::operator*=( float s )
 {
     x *= s;
@@ -53,6 +62,11 @@ inline vec4& vec4::operator*=( float s )
     z *= s;
     w *= s;
     return *this;
+}
+
+inline vec4 vec4::operator-() const
+{
+    return vec4( -x, -y, -z, -w );
 }
 
 inline vec4 operator+( const vec4& lhs, const vec4& rhs )
@@ -73,6 +87,11 @@ inline vec4 operator*( float lhs, const vec4& rhs )
 inline vec4 operator*( const vec4& lhs, float rhs )
 {
     return vec4( rhs * lhs.x, rhs * lhs.y, rhs * lhs.z, rhs * lhs.w );
+}
+
+inline vec4 operator*( const vec4& lhs, const vec4& rhs )
+{
+    return vec4( lhs.x * rhs.x, lhs.y * rhs.y, lhs.z * rhs.z, lhs.w * rhs.w );
 }
 
 inline vec4 operator/( float lhs, const vec4& rhs )

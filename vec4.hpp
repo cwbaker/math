@@ -1,8 +1,3 @@
-//
-// vec4.hpp
-// Copyright (c) 2008 - 2011 Charles Baker.  All rights reserved.
-//
-
 #ifndef SWEET_MATH_VEC4_HPP_INCLUDED
 #define SWEET_MATH_VEC4_HPP_INCLUDED
 
@@ -28,7 +23,9 @@ struct vec4
     inline vec4( float xx, float yy, float zz, float ww );
     inline vec4( const vec3& v, float ww );    
     vec4& operator+=( const vec4& v );
+    vec4& operator*=( const vec4& v );
     vec4& operator*=( float s );
+    vec4 operator-() const;
     template <class Archive> void persist( Archive& archive );
 };
 
@@ -36,6 +33,7 @@ inline vec4 operator+( const vec4& lhs, const vec4& rhs );
 inline vec4 operator-( const vec4& lhs, const vec4& rhs );
 inline vec4 operator*( float lhs, const vec4& rhs );
 inline vec4 operator*( const vec4& lhs, float rhs );
+inline vec4 operator*( const vec4& lhs, const vec4& rhs );
 inline vec4 operator/( float lhs, const vec4& rhs );
 inline vec4 operator/( const vec4& lhs, float rhs );
 inline float length( const vec4& v );
