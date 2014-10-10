@@ -1,5 +1,12 @@
 
 Library "math_lua" {
+	libraries = {
+        "sweet/lua/lua",
+        "sweet/rtti/rtti",
+		"lua/liblua",
+		"sweet/assert/assert"
+	};
+
     Cxx {
         "LuaMat4x4.cpp",
         "LuaMath.cpp",
