@@ -1,6 +1,8 @@
 #ifndef SWEET_MATH_LUAQUAT_HPP_INCLUDED
 #define SWEET_MATH_LUAQUAT_HPP_INCLUDED
 
+#include "declspec.hpp"
+
 struct lua_State;
 
 namespace sweet
@@ -19,7 +21,7 @@ namespace math
 
 class quat;
 
-class LuaQuat
+class SWEET_MATH_LUA_DECLSPEC LuaQuat
 {
     lua::Lua& lua_;
     lua::LuaObject* quat_prototype_;

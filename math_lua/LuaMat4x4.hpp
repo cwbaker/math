@@ -1,6 +1,8 @@
 #ifndef SWEET_MATH_LUAMAT4X4_HPP_INCLUDED
 #define SWEET_MATH_LUAMAT4X4_HPP_INCLUDED
 
+#include "declspec.hpp"
+
 struct lua_State;
 
 namespace sweet
@@ -19,7 +21,7 @@ namespace math
 
 class mat4x4;
 
-class LuaMat4x4
+class SWEET_MATH_LUA_DECLSPEC LuaMat4x4
 {
     lua::Lua& lua_;
     lua::LuaObject* mat4x4_prototype_;

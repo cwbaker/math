@@ -1,6 +1,8 @@
 #ifndef SWEET_MATH_LUAVEC3_HPP_INCLUDED
 #define SWEET_MATH_LUAVEC3_HPP_INCLUDED
 
+#include "declspec.hpp"
+
 struct lua_State;
 
 namespace sweet
@@ -19,7 +21,7 @@ namespace math
 
 class vec3;
 
-class LuaVec3
+class SWEET_MATH_LUA_DECLSPEC LuaVec3
 {
     lua::Lua& lua_;
     lua::LuaObject* vec3_prototype_;
