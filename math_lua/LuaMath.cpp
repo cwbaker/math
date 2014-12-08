@@ -39,6 +39,10 @@ void LuaMath::create( lua::Lua* lua )
     lua_mat4x4_ = new math::LuaMat4x4( *lua );
 }
 
+void LuaMath::destroy()
+{
+}
+
 math::LuaVec2* LuaMath::lua_vec2() const
 {
     return lua_vec2_;

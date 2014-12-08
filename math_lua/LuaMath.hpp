@@ -32,6 +32,7 @@ public:
     LuaMath();
     ~LuaMath();
     void create( lua::Lua* lua );
+    void destroy();
     math::LuaVec2* lua_vec2() const;
     math::LuaVec3* lua_vec3() const;
     math::LuaQuat* lua_quat() const;
