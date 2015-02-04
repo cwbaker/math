@@ -1,17 +1,20 @@
 
-Library "math_lua" {
-	libraries = {
-        "sweet/lua/lua",
-        "sweet/rtti/rtti",
-		"lua/liblua",
-		"sweet/assert/assert"
-	};
+local settings = build.current_settings();
+for _, architecture in ipairs(settings.architectures) do
+    Library ("math_lua", architecture) {
+    	libraries = {
+            "sweet/lua/lua",
+            "sweet/rtti/rtti",
+    		"lua/liblua",
+    		"sweet/assert/assert"
+    	};
 
-    Cxx {
-        "LuaMat4x4.cpp",
-        "LuaMath.cpp",
-        "LuaVec2.cpp",
-        "LuaVec3.cpp",
-        "LuaQuat.cpp"
-    }
-}
+        Cxx (architecture) {
+            "LuaMat4x4.cpp",
+            "LuaMath.cpp",
+            "LuaVec2.cpp",
+            "LuaVec3.cpp",
+            "LuaQuat.cpp"
+        };
+    };
+end

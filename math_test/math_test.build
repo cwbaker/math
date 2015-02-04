@@ -1,18 +1,21 @@
 
-Executable "math_test" {
-    libraries = {
-        "sweet/assert/assert", 
-        "unit/libUnitTest"
-    };
+local settings = build.current_settings();
+for _, architecture in ipairs(settings.architectures) do
+    Executable ("math_test", architecture) {
+        libraries = {
+            "sweet/assert/assert", 
+            "unit/libUnitTest"
+        };
 
-    Cxx {
-        pch = "stdafx.hpp";
-        "main.cpp",
-        "TestMat4x4.cpp",
-        "TestQuat.cpp",
-        "TestVec2.cpp",
-        "TestVec3.cpp",
-        "TestVec4.cpp",
-        "TestFloatx4.cpp"
+        Cxx (architecture) {
+            precompiled_header = "stdafx.hpp";
+            "main.cpp",
+            "TestMat4x4.cpp",
+            "TestQuat.cpp",
+            "TestVec2.cpp",
+            "TestVec3.cpp",
+            "TestVec4.cpp",
+            "TestFloatx4.cpp"
+        };
     };
-}
+end
