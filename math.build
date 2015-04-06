@@ -4,7 +4,7 @@ buildfile "math_test/math_test.build";
 
 local settings = build.current_settings();
 for _, architecture in ipairs(settings.architectures) do
-    Library ("math", architecture) {
+    build.Library ("math", architecture) {
         project_files = {
             "%.[chi]pp"
         };
