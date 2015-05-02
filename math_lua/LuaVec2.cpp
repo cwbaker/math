@@ -1,6 +1,6 @@
 //
 // LuaVec2.cpp
-// Copyright (c) 2013 Charles Baker.  All rights reserved.
+// Copyright (c) Charles Baker.  All rights reserved.
 //
 
 #include "LuaVec2.hpp"
@@ -205,8 +205,6 @@ int LuaVec2::length( lua_State* lua_state )
 
     const int V = 1;
     const math::vec2& v = lua_to_value<math::vec2>( lua_state, V );
-    LuaVec2* lua_vec2 = reinterpret_cast<LuaVec2*>( lua_touserdata(lua_state, lua_upvalueindex(1)) );
-    SWEET_ASSERT( lua_vec2 );
     lua_pushnumber( lua_state, math::length(v) );
     return 1;
 }

@@ -19,7 +19,7 @@ class Lua;
 namespace math
 {
 
-class mat4x4;
+struct mat4x4;
 
 class SWEET_MATH_LUA_DECLSPEC LuaMat4x4
 {

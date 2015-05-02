@@ -1,6 +1,6 @@
 //
 // LuaQuat.cpp
-// Copyright (c) 2012 - 2013 Charles Baker.  All rights reserved.
+// Copyright (c) Charles Baker.  All rights reserved.
 //
 
 #include "LuaQuat.hpp"

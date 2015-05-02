@@ -19,7 +19,7 @@ class Lua;
 namespace math
 {
 
-class vec2;
+struct vec2;
 
 class SWEET_MATH_LUA_DECLSPEC LuaVec2
 {

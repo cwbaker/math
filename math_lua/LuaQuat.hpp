@@ -19,7 +19,7 @@ class Lua;
 namespace math
 {
 
-class quat;
+struct quat;
 
 class SWEET_MATH_LUA_DECLSPEC LuaQuat
 {
