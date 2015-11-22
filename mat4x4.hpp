@@ -49,6 +49,7 @@ inline mat4x4 scale( const vec3& ss );
 inline mat4x4 shear( float hx, float hy, float hz );
 inline mat4x4 look_at( const vec3& at, const vec3& eye, const vec3& up );
 inline mat4x4 orthogonal( float l, float r, float b, float t, float n, float f );
+inline mat4x4 perspective( float fovy, float aspect, float n, float f );
 inline mat4x4 perspective( float l, float r, float b, float t, float n, float f );
 inline mat4x4 direct3d_perspective( float fovy, float aspect, float n, float f );
 inline mat4x4 direct3d_perspective( float l, float r, float b, float t, float n, float f );

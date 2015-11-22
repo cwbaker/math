@@ -409,6 +409,21 @@ inline mat4x4 orthogonal( float l, float r, float b, float t, float n, float f )
     );
 }
 
+
+/**
+// Perspective projection.
+//
+// This is a projection of right handed view space into a left handed 
+// normalized device coordinate space with z in the range of [-1, 1] 
+// ala OpenGL.
+*/
+inline mat4x4 perspective( float fovy, float aspect, float n, float f )
+{
+    float half_height = n * tanf( fovy / 2.0f );
+    float half_width = half_height * aspect;
+    return perspective( -half_width, half_width, -half_height, half_height, n, f );
+}
+
 /**
 // Perspective projection.
 //
