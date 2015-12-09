@@ -14,6 +14,7 @@ for _, architecture in ipairs(settings.architectures) do
             "LuaMath.cpp",
             "LuaVec2.cpp",
             "LuaVec3.cpp",
+            "LuaVec4.cpp",
             "LuaQuat.cpp"
         };
     };
