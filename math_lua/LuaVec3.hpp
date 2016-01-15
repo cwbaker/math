@@ -46,6 +46,7 @@ public:
     static int normalize( lua_State* lua_state );
     static int length( lua_State* lua_state );
     static int dot( lua_State* lua_state );
+    static int cross( lua_State* lua_state );
 };
 
 }

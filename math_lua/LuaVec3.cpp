@@ -33,6 +33,7 @@ LuaVec3::LuaVec3( lua::Lua& lua )
         ( "normalize", raw(&LuaVec3::normalize), this )
         ( "length", raw(&LuaVec3::length), this )
         ( "dot", raw(&LuaVec3::dot), this )
+        ( "cross", raw(&LuaVec3::cross), this )
     ;
     
     vec3_metatable_->members()
@@ -230,5 +231,19 @@ int LuaVec3::dot( lua_State* lua_state )
     const math::vec3& lhs = lua_to_value<math::vec3>( lua_state, LHS );
     const math::vec3& rhs = lua_to_value<math::vec3>( lua_state, RHS );
     lua_pushnumber( lua_state, math::dot(lhs, rhs) );
+    return 1;  
+}
+
+int LuaVec3::cross( lua_State* lua_state )
+{
+    SWEET_ASSERT( lua_state );
+
+    const int LHS = 1;
+    const int RHS = 2;
+    LuaVec3* lua_vec3 = reinterpret_cast<LuaVec3*>( lua_touserdata(lua_state, lua_upvalueindex(1)) );
+    SWEET_ASSERT( lua_vec3 );
+    const math::vec3& lhs = lua_to_value<math::vec3>( lua_state, LHS );
+    const math::vec3& rhs = lua_to_value<math::vec3>( lua_state, RHS );
+    lua_vec3->push_vec3( lua_state, math::cross(lhs, rhs) );
     return 1;  
 }
