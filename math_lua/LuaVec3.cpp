@@ -34,6 +34,9 @@ LuaVec3::LuaVec3( lua::Lua& lua )
         ( "length", raw(&LuaVec3::length), this )
         ( "dot", raw(&LuaVec3::dot), this )
         ( "cross", raw(&LuaVec3::cross), this )
+        ( "rgb_from_hsv", raw(&LuaVec3::rgb_from_hsv), this )
+        ( "rgb_from_hsl", raw(&LuaVec3::rgb_from_hsl), this )
+
     ;
     
     vec3_metatable_->members()
@@ -245,5 +248,29 @@ int LuaVec3::cross( lua_State* lua_state )
     const math::vec3& lhs = lua_to_value<math::vec3>( lua_state, LHS );
     const math::vec3& rhs = lua_to_value<math::vec3>( lua_state, RHS );
     lua_vec3->push_vec3( lua_state, math::cross(lhs, rhs) );
+    return 1;  
+}
+
+int LuaVec3::rgb_from_hsv( lua_State* lua_state )
+{
+    SWEET_ASSERT( lua_state );
+
+    const int HSV = 1;
+    LuaVec3* lua_vec3 = reinterpret_cast<LuaVec3*>( lua_touserdata(lua_state, lua_upvalueindex(1)) );
+    SWEET_ASSERT( lua_vec3 );
+    const math::vec3& hsv = lua_to_value<math::vec3>( lua_state, HSV );
+    lua_vec3->push_vec3( lua_state, math::rgb_from_hsv(hsv) );
+    return 1;  
+}
+
+int LuaVec3::rgb_from_hsl( lua_State* lua_state )
+{
+    SWEET_ASSERT( lua_state );
+
+    const int HSL = 1;
+    LuaVec3* lua_vec3 = reinterpret_cast<LuaVec3*>( lua_touserdata(lua_state, lua_upvalueindex(1)) );
+    SWEET_ASSERT( lua_vec3 );
+    const math::vec3& hsl = lua_to_value<math::vec3>( lua_state, HSL );
+    lua_vec3->push_vec3( lua_state, math::rgb_from_hsl(hsl) );
     return 1;  
 }

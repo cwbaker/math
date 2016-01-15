@@ -47,6 +47,8 @@ public:
     static int length( lua_State* lua_state );
     static int dot( lua_State* lua_state );
     static int cross( lua_State* lua_state );
+    static int rgb_from_hsv( lua_State* lua_state );
+    static int rgb_from_hsl( lua_State* lua_state );
 };
 
 }
