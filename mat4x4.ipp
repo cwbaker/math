@@ -413,9 +413,9 @@ inline mat4x4 orthogonal( float l, float r, float b, float t, float n, float f )
 /**
 // Perspective projection.
 //
-// This is a projection of right handed view space into a left handed 
-// normalized device coordinate space with z in the range of [-1, 1] 
-// ala OpenGL.
+// This is a projection of right handed view space looking down +ive z into a
+// left handed normalized device coordinate space with z in the range of 
+// [-1, 1] ala OpenGL.
 */
 inline mat4x4 perspective( float fovy, float aspect, float n, float f )
 {
@@ -427,26 +427,28 @@ inline mat4x4 perspective( float fovy, float aspect, float n, float f )
 /**
 // Perspective projection.
 //
-// This is a projection of right handed view space into a left handed 
-// normalized device coordinate space with z in the range of [-1, 1] 
-// ala OpenGL.
+// This is a projection of right handed view space looking down +ve z into a
+// left handed normalized device coordinate space with z in the range of 
+// [-1, 1] ala OpenGL.
 */
 inline mat4x4 perspective( float l, float r, float b, float t, float n, float f )
 {
     return mat4x4(
-        2 * n / (r - l),            0.0f,  (r + l) / (r - l),                 0.0f,
-                   0.0f, 2 * n / (t - b),  (t + b) / (t - b),                 0.0f,
-                   0.0f,            0.0f, -(f + n) / (f - n), -2 * f * n / (f - n),
-                   0.0f,            0.0f,              -1.0f,                 0.0f
+       -2.0f * n / (r - l),               0.0f,  (r + l) / (r - l),                    0.0f,
+                      0.0f, 2.0f * n / (t - b),  (t + b) / (t - b),                    0.0f,
+                   // 0.0f,               0.0f, -(f + n) / (f - n), -2.0f * f * n / (f - n),
+                   // 0.0f,               0.0f,              -1.0f,                    0.0f
+                      0.0f,               0.0f,  (f + n) / (f - n), -2.0f * f * n / (f - n),
+                      0.0f,               0.0f,               1.0f,                    0.0f
     );
 }
 
 /**
 // Perspective projection.
 //
-// This is a projection of right handed view space looking down +ive z
-// into a left handed normalized device coordinate space with z in the 
-// range of [0, 1] ala Direct3D.
+// This is a projection of right handed view space looking down +ive z into a 
+// left handed normalized device coordinate space with z in the range of 
+// [0, 1] ala Direct3D.
 */
 inline mat4x4 direct3d_perspective( float fovy, float aspect, float n, float f )
 {
@@ -458,9 +460,9 @@ inline mat4x4 direct3d_perspective( float fovy, float aspect, float n, float f )
 /**
 // Perspective projection.
 //
-// This is a projection of right handed view space looking down +ive z
-// into a left handed normalized device coordinate space with z in the 
-// range of [0, 1] ala Direct3D.
+// This is a projection of right handed view space looking down +ive z into a 
+// left handed normalized device coordinate space with z in the range of 
+// [0, 1] ala Direct3D.
 */
 inline mat4x4 direct3d_perspective( float l, float r, float b, float t, float n, float f )
 {
