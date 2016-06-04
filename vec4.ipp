@@ -21,6 +21,14 @@ inline vec4::vec4()
 {
 }
 
+inline vec4::vec4( float xyzw )
+: x( xyzw ),
+  y( xyzw ),
+  z( xyzw ),
+  w( xyzw )
+{
+}
+
 inline vec4::vec4( float xx, float yy, float zz, float ww )
 : x( xx ),
   y( yy ),

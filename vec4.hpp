@@ -20,6 +20,7 @@ struct vec4
     float w;
 
     inline vec4();
+    inline vec4( float xyzw );
     inline vec4( float xx, float yy, float zz, float ww );
     inline vec4( const vec3& v, float ww );    
     vec4& operator+=( const vec4& v );
