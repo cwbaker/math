@@ -148,6 +148,16 @@ inline vec4 lerp( const vec4& v0, const vec4& v1, float t )
     );
 }
 
+
+inline unsigned int rgba( const vec4& color )
+{
+    int alpha = int(color.w * 255.0f);
+    int red = int(color.x * 255.0f);
+    int green = int(color.y * 255.0f);
+    int blue = int(color.z * 255.0f);
+    return alpha << 24 | blue << 16 | green << 8 | red;
+}
+
 }
 
 }

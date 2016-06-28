@@ -42,6 +42,7 @@ inline float dot( const vec4& lhs, const vec4& rhs );
 inline vec4 cross( const vec4& lhs, const vec4& rhs );
 inline vec4 normalize( const vec4& v );
 inline vec4 lerp( const vec4& v0, const vec4& v1, float t );
+inline unsigned int rgba( const vec4& color );
 
 }
 
