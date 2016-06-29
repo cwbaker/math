@@ -34,6 +34,8 @@ LuaVec4::LuaVec4( lua::Lua& lua )
         ( "normalize", raw(&LuaVec4::normalize), this )
         ( "length", raw(&LuaVec4::length), this )
         ( "dot", raw(&LuaVec4::dot), this )
+        ( "transparent", raw(&LuaVec4::transparent), this )
+        ( "opaque", raw(&LuaVec4::opaque), this )
     ;
     
     vec4_metatable_->members()
@@ -239,4 +241,32 @@ int LuaVec4::dot( lua_State* lua_state )
     const math::vec4& rhs = lua_to_value<math::vec4>( lua_state, RHS );
     lua_pushnumber( lua_state, math::dot(lhs, rhs) );
     return 1;  
+}
+
+int LuaVec4::transparent( lua_State* lua_state )
+{
+    SWEET_ASSERT( lua_state );
+
+    const int COLOR = 1;
+    const int ALPHA = 2;
+    const math::vec4& color = lua_to_value<math::vec4>( lua_state, COLOR );
+    float alpha = lua_isnumber( lua_state, ALPHA ) ? lua_tonumber( lua_state, ALPHA ) : 0.0f;
+    LuaVec4* lua_color = reinterpret_cast<LuaVec4*>( lua_touserdata(lua_state, lua_upvalueindex(1)) );
+    SWEET_ASSERT( lua_color );
+    lua_color->push_vec4( lua_state, math::vec4(color.x, color.y, color.z, alpha) );
+    return 1;
+}
+
+int LuaVec4::opaque( lua_State* lua_state )
+{
+    SWEET_ASSERT( lua_state );
+
+    const int COLOR = 1;
+    const int ALPHA = 2;
+    const math::vec4& color = lua_to_value<math::vec4>( lua_state, COLOR );
+    float alpha = lua_isnumber( lua_state, ALPHA ) ? lua_tonumber( lua_state, ALPHA ) : 1.0f;
+    LuaVec4* lua_color = reinterpret_cast<LuaVec4*>( lua_touserdata(lua_state, lua_upvalueindex(1)) );
+    SWEET_ASSERT( lua_color );
+    lua_color->push_vec4( lua_state, math::vec4(color.x, color.y, color.z, alpha) );
+    return 1;
 }

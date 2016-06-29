@@ -47,6 +47,8 @@ public:
     static int normalize( lua_State* lua_state );
     static int length( lua_State* lua_state );
     static int dot( lua_State* lua_state );
+    static int transparent( lua_State* lua_state );
+    static int opaque( lua_State* lua_state );
 };
 
 }
