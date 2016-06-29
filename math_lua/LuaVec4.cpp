@@ -100,7 +100,7 @@ int LuaVec4::xyzw( lua_State* lua_state )
     const int X = 1;
     const int Y = 2;
     const int Z = 3;
-    const int W = 3;
+    const int W = 4;
     float x = !lua_isnoneornil( lua_state, X ) ? lua_tonumber( lua_state, X ) : 0.0f;
     float y = !lua_isnoneornil( lua_state, Y ) ? lua_tonumber( lua_state, Y ) : 0.0f;
     float z = !lua_isnoneornil( lua_state, Z ) ? lua_tonumber( lua_state, Z ) : 0.0f;
