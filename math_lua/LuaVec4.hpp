@@ -36,6 +36,7 @@ public:
     static float vec4_z( const math::vec4& xx );
     static float vec4_w( const math::vec4& xx );
     static int xyzw( lua_State* lua_state );
+    static int srgb( lua_State* lua_state );
     static int zero( lua_State* lua_state );
     static int one( lua_State* lua_state );
     static int add( lua_State* lua_state );

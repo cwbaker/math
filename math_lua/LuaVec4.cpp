@@ -32,6 +32,7 @@ LuaVec4::LuaVec4( lua::Lua& lua )
         ( "blue", &LuaVec4::vec4_z )
         ( "alpha", &LuaVec4::vec4_w )
         ( "xyzw", raw(&LuaVec4::xyzw), this )
+        ( "srgb", raw(&LuaVec4::xyzw), this )
         ( "zero", raw(&LuaVec4::zero), this )
         ( "one", raw(&LuaVec4::one), this )
         ( "lerp", raw(&LuaVec4::lerp), this )
@@ -108,6 +109,31 @@ int LuaVec4::xyzw( lua_State* lua_state )
     LuaVec4* lua_vec4 = reinterpret_cast<LuaVec4*>( lua_touserdata(lua_state, lua_upvalueindex(1)) );
     SWEET_ASSERT( lua_vec4 );
     lua_vec4->push_vec4( lua_state, math::vec4(x, y, z, w) );
+    return 1;
+}
+
+int LuaVec4::srgb( lua_State* lua_state )
+{
+    LuaVec4* lua_vec4 = reinterpret_cast<LuaVec4*>( lua_touserdata(lua_state, lua_upvalueindex(1)) );
+    SWEET_ASSERT( lua_vec4 );
+    if ( lua_gettop(lua_state) == 1 )
+    {
+        const int RGBA = 1;
+        const math::vec4& rgba = lua_to_value<math::vec4>( lua_state, RGBA );
+        lua_vec4->push_vec4( lua_state, math::srgb(rgba) );
+    }
+    else
+    {
+        const int RED = 1;
+        const int GREEN = 2;
+        const int BLUE = 3;
+        const int ALPHA = 4;
+        float red = luaL_optnumber( lua_state, RED, static_cast<lua_Number>(1.0f) );
+        float green = luaL_optnumber( lua_state, GREEN, static_cast<lua_Number>(1.0f) );
+        float blue = luaL_optnumber( lua_state, BLUE, static_cast<lua_Number>(1.0f) );
+        float alpha = luaL_optnumber( lua_state, ALPHA, static_cast<lua_Number>(1.0f) );
+        lua_vec4->push_vec4( lua_state, math::srgb(vec4(red, green, blue, alpha)) );
+    }
     return 1;
 }
 
