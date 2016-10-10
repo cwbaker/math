@@ -2,7 +2,7 @@
 local settings = build.current_settings();
 for _, architecture in ipairs(settings.architectures) do
     build.all {
-        build.Executable ("math_test", architecture) {
+        build.Executable ("${bin}/math_test", architecture) {
             libraries = {
                 "sweet/assert/assert", 
                 "unit/libUnitTest"
