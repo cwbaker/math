@@ -1,7 +1,6 @@
 
-local settings = build:current_settings();
-for _, architecture in ipairs(settings.architectures) do
-    build:Library ("math_lua", architecture) {
+for _, build in build:default_builds() do
+    build:Library "math_lua" {
     	libraries = {
             "sweet/lua/lua",
             "sweet/rtti/rtti",
@@ -9,7 +8,7 @@ for _, architecture in ipairs(settings.architectures) do
     		"sweet/assert/assert"
     	};
 
-        build:Cxx (architecture) {
+        build:Cxx () {
             "LuaMat4x4.cpp",
             "LuaMath.cpp",
             "LuaVec2.cpp",
