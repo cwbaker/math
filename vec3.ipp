@@ -256,6 +256,16 @@ inline vec3 round( const vec3& v0 )
     return vec3( floorf(v0.x + 0.5f), floorf(v0.y + 0.5f), floorf(v0.z + 0.5f) );
 }
 
+inline vec3 floor( const vec3& v0 )
+{
+    return vec3( floorf(v0.x), floorf(v0.y), floorf(v0.z) );
+}
+
+inline vec3 ceil( const vec3& v0 )
+{
+    return vec3( ceilf(v0.x), ceilf(v0.y), ceilf(v0.z) );
+}
+
 inline float intersect_line_plane( const vec3& p, const vec3& n, const vec3& o, const vec3& d )
 {
     return dot( d, n ) != 0.0f ? (dot(p, n) - dot(o, n)) / dot(d, n) : FLT_MAX;
