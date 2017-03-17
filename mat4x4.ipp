@@ -25,6 +25,26 @@ inline mat4x4::mat4x4()
 {
 }
 
+inline mat4x4::mat4x4( float mij )
+{
+    m[0] = mij;
+    m[1] = 0.0f;
+    m[2] = 0.0f;
+    m[3] = 0.0f;
+    m[4] = 0.0f;
+    m[5] = mij;
+    m[6] = 0.0f;
+    m[7] = 0.0f;
+    m[8] = 0.0f;
+    m[9] = 0.0f;
+    m[10] = mij;
+    m[11] = 0.0f;
+    m[12] = 0.0f;
+    m[13] = 0.0f;
+    m[14] = 0.0f;
+    m[15] = mij;
+}
+
 /**
 // Constructor.
 //
