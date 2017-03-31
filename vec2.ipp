@@ -1,6 +1,6 @@
 //
 // vec2.ipp
-// Copyright (c) 2008 - 2012 Charles Baker.  All rights reserved.
+// Copyright (c) Charles Baker. All rights reserved.
 //
 
 #ifndef SWEET_MATH_VEC2_IPP_INCLUDED
@@ -8,6 +8,7 @@
 
 #include "vec2.hpp"
 #include "vec3.ipp"
+#include "vec4.ipp"
 #include <math.h>
 #include <sweet/assert/assert.hpp>
 
@@ -21,6 +22,12 @@ inline vec2::vec2()
 {
 }
 
+inline vec2::vec2( float xy )
+: x( xy ),
+  y( xy )
+{
+}
+
 inline vec2::vec2( float xx, float yy )
 : x( xx ),
   y( yy )
@@ -28,6 +35,12 @@ inline vec2::vec2( float xx, float yy )
 }
 
 inline vec2::vec2( const vec3& v )
+: x( v.x ),
+  y( v.y )
+{
+}
+
+inline vec2::vec2( const vec4& v )
 : x( v.x ),
   y( v.y )
 {

@@ -13,6 +13,7 @@ namespace math
 {
 
 struct vec3;
+struct vec4;
 
 /**
 // A two element vector.
@@ -23,8 +24,10 @@ struct vec2
     float y;
 
     inline vec2();
+    inline vec2( float xy );
     inline vec2( float xx, float yy );
     inline vec2( const vec3& v );    
+    inline vec2( const vec4& v );
     vec2& operator+=( const vec2& v );    
     vec2 operator-() const;
     template <class Archive> void persist( Archive& archive );
