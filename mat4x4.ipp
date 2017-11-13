@@ -72,6 +72,29 @@ inline mat4x4::mat4x4( float m00, float m01, float m02, float m03, float m10, fl
 }
 
 /**
+// Initialize the columns of this matrix to `c0`, `c1`, `c2`, and `c3`.
+*/
+inline mat4x4::mat4x4( const vec4& c0, const vec4& c1, const vec4& c2, const vec4& c3)
+{
+    m[0] = c0.x;
+    m[1] = c1.x;
+    m[2] = c2.x;
+    m[3] = c3.x;
+    m[4] = c0.y;
+    m[5] = c1.y;
+    m[6] = c2.y;
+    m[7] = c3.y;
+    m[8] = c0.z;
+    m[9] = c1.z;
+    m[10] = c2.z;
+    m[11] = c3.z;
+    m[12] = c0.w;
+    m[13] = c1.w;
+    m[14] = c2.w;
+    m[15] = c3.w;
+}
+
+/**
 // Converts this matrix into the array of 16 floats that make up its 
 // elements.
 */
