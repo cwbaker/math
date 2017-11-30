@@ -49,6 +49,7 @@ inline mat4x4 translate( const vec3& tt );
 inline mat4x4 scale( float sx, float sy, float sz );
 inline mat4x4 scale( const vec3& ss );
 inline mat4x4 shear( float hx, float hy, float hz );
+inline mat4x4 orient( const math::vec3& xx, const math::vec3& yy, const math::vec3& zz);
 inline mat4x4 look_at( const vec3& at, const vec3& eye, const vec3& up );
 inline mat4x4 orthogonal( float l, float r, float b, float t, float n, float f );
 inline mat4x4 perspective( float fovy, float aspect, float n, float f );

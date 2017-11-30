@@ -419,6 +419,19 @@ inline mat4x4 shear( float hx, float hy, float hz )
 }
 
 /**
+// Orient the identity to \e xx, \e yy, and \e zz
+*/
+inline mat4x4 orient( const math::vec3& xx, const math::vec3& yy, const math::vec3& zz)
+{
+    return mat4x4(
+        xx.x, yy.x, zz.x, 0.0f,
+        xx.y, yy.y, zz.y, 0.0f,
+        xx.z, yy.z, zz.z, 0.0f,
+        0.0f, 0.0f, 0.0f, 1.0f
+    );
+}
+
+/**
 // Look at \e at from \e eye with \e up as up.
 */
 inline mat4x4 look_at( const vec3& at, const vec3& eye, const vec3& up )
