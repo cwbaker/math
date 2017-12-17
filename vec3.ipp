@@ -24,17 +24,17 @@ inline vec3::vec3()
 {
 }
 
-inline vec3::vec3( float xyz )
-: x( xyz ),
-  y( xyz ),
-  z( xyz )
-{
-}
-
 inline vec3::vec3( float xx, float yy, float zz )
 : x( xx ),
   y( yy ),
   z( zz )
+{
+}
+
+inline vec3::vec3( float xyz )
+: x( xyz ),
+  y( xyz ),
+  z( xyz )
 {
 }
 
