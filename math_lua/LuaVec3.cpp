@@ -36,7 +36,6 @@ LuaVec3::LuaVec3( lua::Lua& lua )
         ( "cross", raw(&LuaVec3::cross), this )
         ( "rgb_from_hsv", raw(&LuaVec3::rgb_from_hsv), this )
         ( "rgb_from_hsl", raw(&LuaVec3::rgb_from_hsl), this )
-
     ;
     
     vec3_metatable_->members()
