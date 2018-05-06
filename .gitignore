@@ -2,3 +2,7 @@
 *.vcxproj
 *.user
 *.filters
+/debug
+/release
+/shipping
+/local_settings.lua
