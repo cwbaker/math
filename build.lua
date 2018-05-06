@@ -18,7 +18,7 @@ build:initialize {
     lib = build:root( ('%s/lib'):format(variant) );
     obj = build:root( ('%s/obj'):format(variant) );
     include_directories = {
-        build:root( 'src' );
+        build:root( '..' );
         build:root( 'src/lua/src' );
         build:root( 'src/unittest-cpp' );
     };
@@ -34,11 +34,10 @@ build:initialize {
 };
 
 build:default_targets {
-    'src/math',
-    'src/math/math_lua',
-    'src/math/math_test'
+    'math_lua',
+    'math_test'
 };
 
+buildfile 'math.build';
 buildfile 'src/lua/lua.build';
-buildfile 'src/math/math.build';
 buildfile 'src/unittest-cpp/unittest-cpp.build';
