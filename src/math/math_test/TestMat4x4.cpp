@@ -1,12 +1,12 @@
 //
 // TestMat4x4.cpp
-// Copyright (c) 2010 Charles Baker.  All rights reserved
+// Copyright (c) Charles Baker. All rights reserved.
 //
 
 #include "stdafx.hpp"
-#include <sweet/unit/UnitTest.h>
-#include <sweet/math/mat4x4.ipp>
-#include <sweet/math/vec3.ipp>
+#include <UnitTest++/UnitTest++.h>
+#include <math/mat4x4.ipp>
+#include <math/vec3.ipp>
 
 using namespace sweet::math;
 

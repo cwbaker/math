@@ -1,11 +1,11 @@
 //
 // TestQuat.cpp
-// Copyright (c) 2010 Charles Baker.  All rights reserved
+// Copyright (c) Charles Baker. All rights reserved.
 //
 
 #include "stdafx.hpp"
-#include <sweet/unit/UnitTest.h>
-#include <sweet/math/quat.hpp>
+#include <UnitTest++/UnitTest++.h>
+#include <math/quat.hpp>
 
 using namespace sweet::math;
 

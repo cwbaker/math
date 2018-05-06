@@ -1,8 +1,3 @@
-//
-// vec2.ipp
-// Copyright (c) Charles Baker. All rights reserved.
-//
-
 #ifndef SWEET_MATH_VEC2_IPP_INCLUDED
 #define SWEET_MATH_VEC2_IPP_INCLUDED
 
@@ -10,7 +5,6 @@
 #include "vec3.ipp"
 #include "vec4.ipp"
 #include <math.h>
-#include <sweet/assert/assert.hpp>
 
 namespace sweet
 {
@@ -78,6 +72,11 @@ inline vec2 operator*( const vec2& lhs, float rhs )
     return vec2( rhs * lhs.x, rhs * lhs.y );
 }
 
+inline vec2 operator*( const vec2& lhs, const vec2& rhs )
+{
+    return vec2( lhs.x * rhs.x, lhs.y * rhs.y );
+}
+
 inline vec2 operator/( const vec2& lhs, float rhs )
 {
     return (1.0f / rhs) * lhs;
@@ -110,7 +109,7 @@ inline vec2 normalize( const vec2& v )
 
 inline vec2 lerp( const vec2& v0, const vec2& v1, float t )
 {
-    SWEET_ASSERT( t >= 0.0f && t <= 1.0f );
+    // SWEET_ASSERT( t >= 0.0f && t <= 1.0f );
     return vec2(
         v0.x + (v1.x - v0.x) * t,
         v0.y + (v1.y - v0.y) * t

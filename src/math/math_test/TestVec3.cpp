@@ -1,11 +1,11 @@
 //
 // TestVec3.cpp
-// Copyright (c) 2010 - 2012 Charles Baker.  All rights reserved
+// Copyright (c) Charles Baker. All rights reserved.
 //
 
 #include "stdafx.hpp"
-#include <sweet/unit/UnitTest.h>
-#include <sweet/math/vec3.ipp>
+#include <UnitTest++/UnitTest++.h>
+#include <math/vec3.ipp>
 
 using namespace sweet::math;
 
@@ -133,11 +133,11 @@ SUITE( TestVec3 )
         for ( int i = 0; i < 54; ++i )
         {
             vec3 rgb = rgb_from_hsv( HSV_RGB_MAPPINGS[i].hsv );
-            SWEET_ASSERT( fabsf(HSV_RGB_MAPPINGS[i].rgb.x - rgb.x) <= TOLERANCE );
+            // SWEET_ASSERT( fabsf(HSV_RGB_MAPPINGS[i].rgb.x - rgb.x) <= TOLERANCE );
             CHECK_CLOSE( HSV_RGB_MAPPINGS[i].rgb.x, rgb.x, TOLERANCE );
-            SWEET_ASSERT( fabsf(HSV_RGB_MAPPINGS[i].rgb.y - rgb.y) <= TOLERANCE );
+            // SWEET_ASSERT( fabsf(HSV_RGB_MAPPINGS[i].rgb.y - rgb.y) <= TOLERANCE );
             CHECK_CLOSE( HSV_RGB_MAPPINGS[i].rgb.y, rgb.y, TOLERANCE );
-            SWEET_ASSERT( fabsf(HSV_RGB_MAPPINGS[i].rgb.z - rgb.z) <= TOLERANCE );            
+            // SWEET_ASSERT( fabsf(HSV_RGB_MAPPINGS[i].rgb.z - rgb.z) <= TOLERANCE );            
             CHECK_CLOSE( HSV_RGB_MAPPINGS[i].rgb.z, rgb.z, TOLERANCE );
         }
     }
@@ -226,11 +226,11 @@ SUITE( TestVec3 )
         for ( int i = 0; i < 54; ++i )
         {
             vec3 rgb = rgb_from_hsl( HSL_RGB_MAPPINGS[i].hsl );
-            SWEET_ASSERT( fabsf(HSL_RGB_MAPPINGS[i].rgb.x - rgb.x) <= TOLERANCE );
+            // SWEET_ASSERT( fabsf(HSL_RGB_MAPPINGS[i].rgb.x - rgb.x) <= TOLERANCE );
             CHECK_CLOSE( HSL_RGB_MAPPINGS[i].rgb.x, rgb.x, TOLERANCE );
-            SWEET_ASSERT( fabsf(HSL_RGB_MAPPINGS[i].rgb.y - rgb.y) <= TOLERANCE );
+            // SWEET_ASSERT( fabsf(HSL_RGB_MAPPINGS[i].rgb.y - rgb.y) <= TOLERANCE );
             CHECK_CLOSE( HSL_RGB_MAPPINGS[i].rgb.y, rgb.y, TOLERANCE );
-            SWEET_ASSERT( fabsf(HSL_RGB_MAPPINGS[i].rgb.z - rgb.z) <= TOLERANCE );            
+            // SWEET_ASSERT( fabsf(HSL_RGB_MAPPINGS[i].rgb.z - rgb.z) <= TOLERANCE );            
             CHECK_CLOSE( HSL_RGB_MAPPINGS[i].rgb.z, rgb.z, TOLERANCE );
         }
     }    

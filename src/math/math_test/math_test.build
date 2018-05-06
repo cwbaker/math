@@ -1,13 +1,9 @@
 
 build:all {
     build:Executable "${bin}/math_test" {
-        libraries = {
-            "sweet/assert/assert", 
-            "unit/libUnitTest"
-        };
+        '${lib}/UnitTest++_${architecture}';
 
         build:Cxx () {
-            precompiled_header = "stdafx.hpp";
             "main.cpp",
             "TestMat4x4.cpp",
             "TestQuat.cpp",

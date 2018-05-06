@@ -8,8 +8,8 @@
 
 #if defined(BUILD_PLATFORM_MSVC)
 #include <sweet/unit/UnitTest.h>
-#include <sweet/math/vec3.ipp>
-#include <sweet/math/floatx4.ipp>
+#include <math/vec3.ipp>
+#include <math/floatx4.ipp>
 #define _USE_MATH_DEFINES
 #include <math.h>
 

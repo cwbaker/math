@@ -1,14 +1,8 @@
-//
-// vec4.ipp
-// Copyright (c) 2008 - 2014 Charles Baker.  All rights reserved.
-//
-
 #ifndef SWEET_MATH_VEC4_IPP_INCLUDED
 #define SWEET_MATH_VEC4_IPP_INCLUDED
 
 #include "vec4.hpp"
 #include "vec3.ipp"
-#include <sweet/assert/assert.hpp>
 #include <math.h>
 
 namespace sweet
@@ -139,7 +133,7 @@ inline vec4 normalize( const vec4& v )
 
 inline vec4 lerp( const vec4& v0, const vec4& v1, float t )
 {
-    SWEET_ASSERT( t >= 0.0f && t <= 1.0f );
+    // SWEET_ASSERT( t >= 0.0f && t <= 1.0f );
     return vec4(
         v0.x + (v1.x - v0.x) * t,
         v0.y + (v1.y - v0.y) * t,

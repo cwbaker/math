@@ -6,7 +6,6 @@
 #define _SCL_SECURE_NO_DEPRECATE
 #define NOMINMAX
 
-#include <sweet/build.hpp>
 
 #include <stdlib.h>
 #include <stdio.h>

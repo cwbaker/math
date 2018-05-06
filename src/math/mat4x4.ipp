@@ -326,7 +326,7 @@ inline mat4x4 rotate( const vec3& axis, float angle )
 */
 inline mat4x4 rotate( const quat& q )
 {
-    SWEET_ASSERT( q.norm() > 0.9999f && q.norm() < 1.0001f );
+    // SWEET_ASSERT( q.norm() > 0.9999f && q.norm() < 1.0001f );
     return mat4x4(
         1.0f - 2.0f * (q.y * q.y + q.z * q.z), 
         2.0f * (q.x * q.y - q.w * q.z),  

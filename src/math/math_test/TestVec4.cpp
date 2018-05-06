@@ -1,15 +1,15 @@
 //
-// TestVec2.cpp
-// Copyright (c) 2010 Charles Baker.  All rights reserved
+// TestVec4.cpp
+// Copyright (c) Charles Baker. All rights reserved.
 //
 
 #include "stdafx.hpp"
-#include <sweet/unit/UnitTest.h>
-#include <sweet/math/vec2.hpp>
+#include <UnitTest++/UnitTest++.h>
+#include <math/vec4.hpp>
 
 using namespace sweet::math;
 
-SUITE( TestVec2 )
+SUITE( TestVec4 )
 {
     TEST( TestAddition )
     {
@@ -29,8 +29,8 @@ SUITE( TestVec2 )
 
     TEST( TestLength )
     {
-    }    
-
+    }
+    
     TEST( TestNormalize )
     {
     }    
