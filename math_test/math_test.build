@@ -1,16 +1,16 @@
 
 build:all {
-    build:Executable "${bin}/math_test" {
+    build:Executable '${bin}/math_test' {
         '${lib}/UnitTest++_${architecture}';
 
         build:Cxx () {
-            "main.cpp",
-            "TestMat4x4.cpp",
-            "TestQuat.cpp",
-            "TestVec2.cpp",
-            "TestVec3.cpp",
-            "TestVec4.cpp",
-            "TestFloatx4.cpp"
+            'main.cpp',
+            'TestMat4x4.cpp',
+            'TestQuat.cpp',
+            'TestVec2.cpp',
+            'TestVec3.cpp',
+            'TestVec4.cpp',
+            'TestFloatx4.cpp'
         };
     };
 };
