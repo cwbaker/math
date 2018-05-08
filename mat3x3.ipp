@@ -245,7 +245,7 @@ inline mat3x3 rotate3x3( const vec3& axis, float angle )
 */
 inline mat3x3 rotate3x3( const quat& q )
 {
-    SWEET_ASSERT( q.norm() > 0.9999f && q.norm() < 1.0001f );
+    // SWEET_ASSERT( q.norm() > 0.9999f && q.norm() < 1.0001f );
     return mat3x3(
         1.0f - 2.0f * (q.y * q.y + q.z * q.z), 
         2.0f * (q.x * q.y - q.w * q.z),  
