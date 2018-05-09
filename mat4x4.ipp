@@ -1,6 +1,6 @@
 //
 // mat4x4.ipp
-// Copyright (c) 2008 - 2011 Charles Baker.  All rights reserved.
+// Copyright (c) Charles Baker. All rights reserved.
 //
 
 #ifndef SWEET_MATH_MAT4X4_IPP_INCLUDED
@@ -9,9 +9,6 @@
 #include "mat4x4.hpp"
 #include "vec3.ipp"
 #include "quat.ipp"
-
-namespace sweet
-{
 
 namespace math
 {
@@ -184,7 +181,7 @@ inline mat4x4 operator*( float scalar, const mat4x4& rhs )
 */
 inline mat4x4 operator*( const mat4x4& lhs, float scalar )
 {
-    return sweet::math::operator*( scalar, lhs );
+    return math::operator*( scalar, lhs );
 }
 
 /**
@@ -607,8 +604,6 @@ inline vec4 renderman_project( const math::mat4x4& screen_transform, float width
         xx.z / xx.w,
         xx.w
     );
-}
-
 }
 
 }

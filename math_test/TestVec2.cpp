@@ -7,7 +7,7 @@
 #include <UnitTest++/UnitTest++.h>
 #include <math/vec2.hpp>
 
-using namespace sweet::math;
+using namespace math;
 
 SUITE( TestVec2 )
 {

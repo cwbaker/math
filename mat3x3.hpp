@@ -1,13 +1,5 @@
-//
-// mat3x3.hpp
-// Copyright (c) 2008 - 2011 Charles Baker.  All rights reserved.
-//
-
 #ifndef SWEET_MATH_MAT3X3_HPP_INCLUDED
 #define SWEET_MATH_MAT3X3_HPP_INCLUDED
-
-namespace sweet
-{
 
 namespace math
 {
@@ -46,8 +38,6 @@ inline mat3x3 rotate3x3( const quat& q );
 inline mat3x3 scale3x3( float sx, float sy, float sz );
 inline mat3x3 shear3x3( float hx, float hy, float hz );
 inline mat3x3 skew( const vec3& v );
-
-}
 
 }
 

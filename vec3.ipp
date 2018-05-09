@@ -8,9 +8,6 @@
 #include <math.h>
 #include <algorithm>
 
-namespace sweet
-{
-
 namespace math
 {
 
@@ -87,7 +84,7 @@ inline vec3 operator*( float lhs, const vec3& rhs )
 
 inline vec3 operator*( const vec3& lhs, float rhs )
 {
-    return sweet::math::operator*( rhs, lhs );
+    return math::operator*( rhs, lhs );
 }
 
 inline vec3 operator*( const vec3& lhs, const vec3& rhs )
@@ -350,8 +347,6 @@ inline bool parallel( const math::vec3& a, const math::vec3& b )
 {
     const float PARALLEL_THRESHOLD = 0.99f;
     return fabsf( dot(a, b) ) >= PARALLEL_THRESHOLD;
-}
-
 }
 
 }

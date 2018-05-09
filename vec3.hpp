@@ -1,15 +1,7 @@
-//
-// vec3.hpp
-// Copyright (c) 2008 - 2011 Charles Baker.  All rights reserved.
-//
-
 #ifndef SWEET_MATH_VEC3_HPP_INCLUDED
 #define SWEET_MATH_VEC3_HPP_INCLUDED
 
 #include "vec2.hpp"
-
-namespace sweet
-{
 
 namespace math
 {
@@ -59,8 +51,6 @@ inline float intersect_line_plane( const vec3& p, const vec3& n, const vec3& o, 
 inline float intersect_line_sphere( const vec3& p, float r, const vec3& o, const vec3& d );
 inline vec2 project_line_plane( const math::vec3& p, const math::vec3& i, const math::vec3& j, const math::vec3& k, const math::vec3& o, const math::vec3& d );
 inline bool parallel( const math::vec3& a, const math::vec3& b );
-
-}
 
 }
 

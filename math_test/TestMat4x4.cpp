@@ -8,7 +8,7 @@
 #include <math/mat4x4.ipp>
 #include <math/vec3.ipp>
 
-using namespace sweet::math;
+using namespace math;
 
 SUITE( TestMat4x4 )
 {

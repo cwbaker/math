@@ -1,6 +1,6 @@
 //
 // quat.ipp
-// Copyright (c) 2008 - 2013 Charles Baker.  All rights reserved.
+// Copyright (c) Charles Baker. All rights reserved.
 //
 
 #ifndef SWEET_MATH_QUAT_IPP_INCLUDED
@@ -9,9 +9,6 @@
 #include <math.h>
 #include "quat.hpp"
 #include "vec3.ipp"
-
-namespace sweet
-{
 
 namespace math
 {
@@ -134,8 +131,6 @@ inline quat slerp( const quat& q0, const quat& q1, float t )
 {
     float theta = ::acosf( dot(q0, q1) );
     return ::sinf( theta * (1.0f - t) ) / ::sinf( theta ) * q0 + ::sinf( theta * t ) / ::sinf( theta ) * q1;
-}
-
 }
 
 }

@@ -7,7 +7,7 @@
 #include <UnitTest++/UnitTest++.h>
 #include <math/quat.hpp>
 
-using namespace sweet::math;
+using namespace math;
 
 SUITE( TestQuat )
 {

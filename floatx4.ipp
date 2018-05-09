@@ -21,9 +21,6 @@
 // 2 y
 // 3 x
 
-namespace sweet
-{
-
 namespace math
 {
 
@@ -261,8 +258,6 @@ inline floatx4 select( floatx4 mask, floatx4 a, floatx4 b )
 inline int movemask( floatx4 mask )
 {
     return _mm_movemask_ps( mask );
-}
-
 }
 
 }

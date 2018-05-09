@@ -1,13 +1,5 @@
-//
-// mat4x4.hpp
-// Copyright (c) 2008 - 2011 Charles Baker.  All rights reserved.
-//
-
 #ifndef SWEET_MATH_MAT4X4_HPP_INCLUDED
 #define SWEET_MATH_MAT4X4_HPP_INCLUDED
-
-namespace sweet
-{
 
 namespace math
 {
@@ -61,8 +53,6 @@ inline mat4x4 renderman_orthographic( float l, float r, float b, float t, float 
 inline mat4x4 renderman_perspective( float fovx, float aspect, float n, float f );
 inline mat4x4 renderman_perspective( float l, float r, float b, float t, float n, float f );
 inline vec4 renderman_project( const math::mat4x4& transform, float width, float height, const math::vec4& point );
-
-}
 
 }
 

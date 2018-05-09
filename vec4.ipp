@@ -5,9 +5,6 @@
 #include "vec3.ipp"
 #include <math.h>
 
-namespace sweet
-{
-
 namespace math
 {
 
@@ -166,8 +163,6 @@ inline unsigned int rgba( const vec4& color )
     int blue = int(color.z * 255.0f);
     int alpha = int(color.w * 255.0f);
     return alpha << 24 | blue << 16 | green << 8 | red;
-}
-
 }
 
 }

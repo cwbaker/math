@@ -6,9 +6,6 @@
 #include "vec4.ipp"
 #include <math.h>
 
-namespace sweet
-{
-
 namespace math
 {
 
@@ -114,8 +111,6 @@ inline vec2 lerp( const vec2& v0, const vec2& v1, float t )
         v0.x + (v1.x - v0.x) * t,
         v0.y + (v1.y - v0.y) * t
     );
-}
-
 }
 
 }

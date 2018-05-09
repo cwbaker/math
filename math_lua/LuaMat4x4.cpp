@@ -13,9 +13,9 @@
 #include <stddef.h>
 
 using namespace sweet;
-using namespace sweet::math;
+using namespace math;
 
-const char* sweet::math::MAT4X4 = "mat4x4";
+const char* math::MAT4X4 = "mat4x4";
 
 void math::mat4x4_openlib( lua_State* lua_state )
 {   

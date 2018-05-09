@@ -1,13 +1,10 @@
 //
 // vec2.hpp
-// Copyright (c) 2008 - 2011 Charles Baker.  All rights reserved.
+// Copyright (c) Charles Baker. All rights reserved.
 //
 
 #ifndef SWEET_MATH_VEC2_HPP_INCLUDED
 #define SWEET_MATH_VEC2_HPP_INCLUDED
-
-namespace sweet
-{
 
 namespace math
 {
@@ -45,8 +42,6 @@ inline float length( const vec2& v );
 inline float dot( const vec2& lhs, const vec2& rhs );
 inline vec2 normalize( const vec2& v );
 inline vec2 lerp( const vec2& v0, const vec2& v1, float t );
-
-}
 
 }
 

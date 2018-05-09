@@ -1,13 +1,5 @@
-//
-// quat.hpp
-// Copyright (c) 2008 - 2011 Charles Baker.  All rights reserved.
-//
-
 #ifndef SWEET_MATH_QUAT_HPP_INCLUDED
 #define SWEET_MATH_QUAT_HPP_INCLUDED
-
-namespace sweet
-{
 
 namespace math
 {
@@ -40,8 +32,6 @@ inline float dot( const quat& lhs, const quat& rhs );
 inline quat conjugate( const quat& q );
 inline quat normalize( const quat& q );
 inline quat slerp( const quat& q0, const quat& q1, float t );
-
-}
 
 }
 

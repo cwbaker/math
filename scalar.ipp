@@ -1,11 +1,7 @@
 #ifndef SWEET_MATH_SCALAR_IPP_INCLUDED
 #define SWEET_MATH_SCALAR_IPP_INCLUDED
 
-// #include <sweet/assert/assert.hpp>
 #include <math.h>
-
-namespace sweet
-{
 
 namespace math
 {
@@ -51,8 +47,6 @@ inline float radians( float degrees )
 inline float degrees( float radians )
 {
     return radians * 180.0f / float(PI);
-}
-
 }
 
 }

@@ -9,9 +9,9 @@
 #include <lua.hpp>
 
 using namespace sweet;
-using namespace sweet::math;
+using namespace math;
 
-const char* sweet::math::VEC2 = "vec2";
+const char* math::VEC2 = "vec2";
 
 void math::vec2_openlib( lua_State* lua_state )
 {

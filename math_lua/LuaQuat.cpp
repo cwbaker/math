@@ -11,9 +11,9 @@
 #include <stddef.h>
 
 using namespace sweet;
-using namespace sweet::math;
+using namespace math;
 
-const char* sweet::math::QUAT = "quat";
+const char* math::QUAT = "quat";
 
 void math::quat_openlib( lua_State* lua_state )
 {

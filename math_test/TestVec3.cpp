@@ -7,7 +7,7 @@
 #include <UnitTest++/UnitTest++.h>
 #include <math/vec3.ipp>
 
-using namespace sweet::math;
+using namespace math;
 
 static const float TOLERANCE = 0.01f;
 

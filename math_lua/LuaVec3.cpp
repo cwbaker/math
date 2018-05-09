@@ -9,7 +9,7 @@
 #include <lua.hpp>
 
 using namespace sweet;
-using namespace sweet::math;
+using namespace math;
 
 const char* math::VEC3 = "vec3";
 

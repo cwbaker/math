@@ -1,6 +1,6 @@
 //
 // mat3x3.ipp
-// Copyright (c) 2008 - 2012 Charles Baker.  All rights reserved.
+// Copyright (c) Charles Baker. All rights reserved.
 //
 
 #ifndef SWEET_MATH_MAT3X3_IPP_INCLUDED
@@ -10,9 +10,6 @@
 #include "mat4x4.hpp"
 #include "vec3.ipp"
 #include "quat.ipp"
-
-namespace sweet
-{
 
 namespace math
 {
@@ -307,8 +304,6 @@ inline mat3x3 skew( const vec3& v )
         v.z, 0.0f, -v.x,
         -v.y, v.x, 0.0f
     );
-}
-
 }
 
 }

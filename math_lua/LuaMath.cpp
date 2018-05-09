@@ -13,7 +13,7 @@
 #include <stddef.h>
 
 using namespace sweet;
-using namespace sweet::math;
+using namespace math;
 
 void math::math_openlibs( lua_State* lua_state )
 {

@@ -1,9 +1,6 @@
 #ifndef SWEET_MATH_VEC4_HPP_INCLUDED
 #define SWEET_MATH_VEC4_HPP_INCLUDED
 
-namespace sweet
-{
-
 namespace math
 {
 
@@ -44,8 +41,6 @@ inline vec4 normalize( const vec4& v );
 inline vec4 lerp( const vec4& v0, const vec4& v1, float t );
 inline vec4 srgb( const vec4& rgba );
 inline unsigned int rgba( const vec4& color );
-
-}
 
 }
 
