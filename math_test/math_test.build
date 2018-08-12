@@ -1,9 +1,9 @@
 
-build:all {
-    build:Executable '${bin}/math_test' {
+forge:all {
+    forge:Executable '${bin}/math_test' {
         '${lib}/UnitTest++_${architecture}';
 
-        build:Cxx () {
+        forge:Cxx () {
             'main.cpp',
             'TestMat4x4.cpp',
             'TestQuat.cpp',
