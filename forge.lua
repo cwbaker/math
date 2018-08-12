@@ -38,6 +38,6 @@ forge:default_targets {
     'math_test'
 };
 
-buildfile 'math.build';
-buildfile 'src/lua/lua.build';
-buildfile 'src/unittest-cpp/unittest-cpp.build';
+buildfile 'math.forge';
+buildfile 'src/lua/lua.forge';
+buildfile 'src/unittest-cpp/unittest-cpp.forge';
