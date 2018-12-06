@@ -3,7 +3,7 @@ forge:all {
     forge:Executable '${bin}/math_test' {
         '${lib}/UnitTest++_${architecture}';
 
-        forge:Cxx () {
+        forge:Cxx '${obj}/%1' {
             'main.cpp',
             'TestMat4x4.cpp',
             'TestQuat.cpp',
