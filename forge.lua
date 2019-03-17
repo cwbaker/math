@@ -1,19 +1,10 @@
 
-require 'forge';
-require 'forge.cc';
-require 'forge.visual_studio';
-require 'forge.xcode';
-require 'forge.macos';
-require 'forge.windows';
-
-platform = platform or forge:operating_system();
 variant = variant or 'debug';
 version = version or ('%s %s %s'):format(os.date('%Y.%m.%d %H:%M:%S'), platform, variant );
-goal = goal or "";
-jobs = jobs or 4;
 
-forge:initialize {
-    variants = { 'debug', 'release', 'shipping' };
+local forge = require 'forge.cc' {
+    identifier = 'cc_${platform}_${architecture}';
+    platform = forge:operating_system();
     bin = forge:root( ('%s/bin'):format(variant) );
     lib = forge:root( ('%s/lib'):format(variant) );
     obj = forge:root( ('%s/obj'):format(variant) );
@@ -33,11 +24,11 @@ forge:initialize {
     };
 };
 
-forge:default_targets {
-    'math_lua',
-    'math_test'
-};
-
 buildfile 'math.forge';
 buildfile 'src/lua/lua.forge';
 buildfile 'src/unittest-cpp/unittest-cpp.forge';
+
+forge:all {
+    'math_lua/all',
+    'math_test/all'
+};

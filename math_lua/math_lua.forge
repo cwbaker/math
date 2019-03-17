@@ -1,7 +1,7 @@
 
-for _, forge in forge:default_builds('cc_.*') do
+for _, forge in forge:builds('cc_.*') do
     forge:all {
-        forge:Library '${lib}/math_lua_${architecture}' {
+        forge:StaticLibrary '${lib}/math_lua_${architecture}' {
             forge:Cxx '${obj}/%1' {
                 'LuaMat4x4.cpp',
                 'LuaMath.cpp',
