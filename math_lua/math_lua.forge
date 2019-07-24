@@ -1,8 +1,8 @@
 
-for _, forge in forge:builds('cc_.*') do
-    forge:all {
-        forge:StaticLibrary '${lib}/math_lua_${architecture}' {
-            forge:Cxx '${obj}/%1' {
+for _, toolset in toolsets('cc_.*') do
+    toolset:all {
+        toolset:StaticLibrary '${lib}/math_lua_${architecture}' {
+            toolset:Cxx '${obj}/%1' {
                 'LuaMat4x4.cpp',
                 'LuaMath.cpp',
                 'LuaVec2.cpp',

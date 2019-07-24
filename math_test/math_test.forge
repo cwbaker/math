@@ -1,10 +1,10 @@
 
-for _, forge in forge:builds('cc_.*') do
-    forge:all {
-        forge:Executable '${bin}/math_test' {
+for _, toolset in toolsets('cc_.*') do
+    toolset:all {
+        toolset:Executable '${bin}/math_test' {
             '${lib}/UnitTest++_${architecture}';
 
-            forge:Cxx '${obj}/%1' {
+            toolset:Cxx '${obj}/%1' {
                 'main.cpp',
                 'TestMat4x4.cpp',
                 'TestQuat.cpp',
