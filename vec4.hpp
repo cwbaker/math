@@ -4,6 +4,7 @@
 namespace math
 {
 
+struct vec2;
 struct vec3;
 
 /**
@@ -19,7 +20,8 @@ struct vec4
     inline vec4();
     inline vec4( float xyzw );
     inline vec4( float xx, float yy, float zz, float ww );
-    inline vec4( const vec3& v, float ww );    
+    inline vec4( const vec2& v, float zz, float ww );
+    inline vec4( const vec3& v, float ww );
     vec4& operator+=( const vec4& v );
     vec4& operator*=( const vec4& v );
     vec4& operator*=( float s );

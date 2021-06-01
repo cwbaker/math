@@ -28,6 +28,15 @@ inline vec4::vec4( float xx, float yy, float zz, float ww )
 {
 }
 
+inline vec4::vec4( const vec2& v, float zz, float ww )
+: x( v.x ),
+  y( v.y ),
+  z( zz ),
+  w( ww )
+{
+
+}
+
 inline vec4::vec4( const vec3& v, float ww )
 : x( v.x ),
   y( v.y ),
