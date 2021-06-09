@@ -1,9 +1,8 @@
 //
 // TestMat4x4.cpp
-// Copyright (c) Charles Baker. All rights reserved.
+// Copyright (c) Charles Baker.  All rights reserved
 //
 
-#include "stdafx.hpp"
 #include <UnitTest++/UnitTest++.h>
 #include <math/mat4x4.ipp>
 #include <math/vec3.ipp>

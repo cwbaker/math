@@ -2,10 +2,7 @@
 buildfile 'math_lua/math_lua.forge';
 buildfile 'math_test/math_test.forge';
 
-for _, toolset in toolsets('cc_.*') do
-    toolset:StaticLibrary '${lib}/math' {
-        project_files = {
-            "%.[chi]pp"
-        };
+for _, cc in toolsets('cc.*') do
+    cc:StaticLibrary '${lib}/math_${platform}_${architecture}' {
     };
 end

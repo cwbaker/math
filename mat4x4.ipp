@@ -1,6 +1,6 @@
 //
 // mat4x4.ipp
-// Copyright (c) Charles Baker. All rights reserved.
+// Copyright (c) Charles Baker.  All rights reserved.
 //
 
 #ifndef SWEET_MATH_MAT4X4_IPP_INCLUDED
@@ -323,7 +323,7 @@ inline mat4x4 rotate( const vec3& axis, float angle )
 */
 inline mat4x4 rotate( const quat& q )
 {
-    // SWEET_ASSERT( q.norm() > 0.9999f && q.norm() < 1.0001f );
+    SWEET_ASSERT( q.norm() > 0.9999f && q.norm() < 1.0001f );
     return mat4x4(
         1.0f - 2.0f * (q.y * q.y + q.z * q.z), 
         2.0f * (q.x * q.y - q.w * q.z),  
@@ -367,6 +367,19 @@ inline mat4x4 translate( const vec3& tt )
         1.0f, 0.0f, 0.0f, tt.x,
         0.0f, 1.0f, 0.0f, tt.y,
         0.0f, 0.0f, 1.0f, tt.z,
+        0.0f, 0.0f, 0.0f, 1.0f
+    );
+}
+
+/**
+// Uniform scale by \e s.
+*/
+inline mat4x4 scale( float sxyz )
+{
+    return mat4x4( 
+        sxyz, 0.0f, 0.0f, 0.0f, 
+        0.0f, sxyz, 0.0f, 0.0f, 
+        0.0f, 0.0f, sxyz, 0.0f,
         0.0f, 0.0f, 0.0f, 1.0f
     );
 }
@@ -464,7 +477,6 @@ inline mat4x4 orthogonal( float l, float r, float b, float t, float n, float f )
     );
 }
 
-
 /**
 // Perspective projection.
 //
@@ -497,31 +509,52 @@ inline mat4x4 perspective( float l, float r, float b, float t, float n, float f 
 }
 
 /**
+// Orthogonal projection.
+//
+// This is a projection of right handed view space looking down -ive z into a
+// right handed normalized device coordinate space with +ive x, y right and
+// down from (-1, -1) at the top left and z in the range of [0, 1] as expected
+// by the Vulkan API.
+*/
+inline mat4x4 vulkan_orthogonal( float l, float r, float b, float t, float n, float f )
+{
+    return mat4x4(
+        2.0f / (r - l), 0.0f,           0.0f,           -(r + l) / (r - l),
+        0.0f,           2.0f / (b - t), 0.0f,           -(b + t) / (b - t),
+        0.0f,           0.0f,           2.0f / (f - n), -(f + n) / (f - n),
+        0.0f,           0.0f,           0.0f,           1.0f
+    );
+}
+
+
+/**
 // Perspective projection.
 //
-// This is a projection of right handed view space looking down +ive z into a 
-// left handed normalized device coordinate space with z in the range of 
-// [0, 1] ala Direct3D.
+// This is a projection of right handed view space looking down -ive z into a
+// right handed normalized device coordinate space with +ive x, y right and
+// down from (-1, -1) at the top left and z in the range of [0, 1] as expected
+// by the Vulkan API.
 */
-inline mat4x4 direct3d_perspective( float fovy, float aspect, float n, float f )
+inline mat4x4 vulkan_perspective( float fovy, float aspect, float n, float f )
 {
     float half_height = n * tanf( fovy / 2.0f );
     float half_width = half_height * aspect;
-    return direct3d_perspective( -half_width, half_width, -half_height, half_height, n, f );
+    return vulkan_perspective( -half_width, half_width, -half_height, half_height, n, f );
 }
 
 /**
 // Perspective projection.
 //
-// This is a projection of right handed view space looking down -ive z into a 
-// left handed normalized device coordinate space with z in the range of 
-// [0, 1] ala Direct3D.
+// This is a projection of right handed view space looking down -ive z into a
+// right handed normalized device coordinate space with +ive x, y right and
+// down from (-1, -1) at the top left and z in the range of [0, 1] as expected
+// by the Vulkan API.
 */
-inline mat4x4 direct3d_perspective( float l, float r, float b, float t, float n, float f )
+inline mat4x4 vulkan_perspective( float l, float r, float b, float t, float n, float f )
 {
     return mat4x4(
          2.0f * n / (r - l),               0.0f,  (r + l) / (r - l),             0.0f,
-                       0.0f, 2.0f * n / (t - b),  (t + b) / (t - b),             0.0f,
+                       0.0f, 2.0f * n / (b - t),  (b + t) / (b - t),             0.0f,
                        0.0f,               0.0f,       -f / (f - n), -f * n / (f - n),
                        0.0f,               0.0f,              -1.0f,             0.0f
     );    

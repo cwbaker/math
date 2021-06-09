@@ -1,8 +1,15 @@
+//
+// vec4.ipp
+// Copyright (c) Charles Baker.  All rights reserved.
+//
+
 #ifndef SWEET_MATH_VEC4_IPP_INCLUDED
 #define SWEET_MATH_VEC4_IPP_INCLUDED
 
 #include "vec4.hpp"
 #include "vec3.ipp"
+#include "vec2.ipp"
+#include <assert/assert.hpp>
 #include <math.h>
 
 namespace math
@@ -34,7 +41,6 @@ inline vec4::vec4( const vec2& v, float zz, float ww )
   z( zz ),
   w( ww )
 {
-
 }
 
 inline vec4::vec4( const vec3& v, float ww )
@@ -139,7 +145,7 @@ inline vec4 normalize( const vec4& v )
 
 inline vec4 lerp( const vec4& v0, const vec4& v1, float t )
 {
-    // SWEET_ASSERT( t >= 0.0f && t <= 1.0f );
+    SWEET_ASSERT( t >= 0.0f && t <= 1.0f );
     return vec4(
         v0.x + (v1.x - v0.x) * t,
         v0.y + (v1.y - v0.y) * t,
@@ -153,14 +159,32 @@ inline vec4 srgb( const vec4& rgba )
     const float A = 0.055f;
     const float C = 0.0031308f;
     const float GAMMA = 2.4f;
-    float red = rgba.x;
-    float green = rgba.y;
-    float blue = rgba.z;
-    float alpha = rgba.w;
+    const float red = rgba.x;
+    const float green = rgba.y;
+    const float blue = rgba.z;
+    const float alpha = rgba.w;
     return vec4(
         red < C ? 12.92f * red : (1.0f + A) * powf( red, 1.0f / GAMMA ) - A,
         green < C ? 12.92f * green : (1.0f + A) * powf( green, 1.0f / GAMMA ) - A,
         blue < C ? 12.92f * blue : (1.0f + A) * powf( blue, 1.0f / GAMMA ) - A,
+        alpha
+    );
+}
+
+inline vec4 linear( const vec4& srgb )
+{
+    const float A = 0.055f;
+    const float B = 1.0f / 12.92f;
+    const float C = 0.04045f;
+    const float GAMMA = 2.4f;
+    const float red = srgb.x;
+    const float green = srgb.y;
+    const float blue = srgb.z;
+    const float alpha = srgb.w;
+    return vec4(
+        red < C ? B * red : powf((red + A) / (1.0f + A), GAMMA),
+        green < C ? B * green : powf((green + A) / (1.0f + A), GAMMA),
+        blue < C ? B * blue : powf((blue + A) / (1.0f + A), GAMMA),
         alpha
     );
 }

@@ -1,20 +1,25 @@
+//
+// scalar.ipp
+// Copyright (c) Charles Baker.  All rights reserved.
+//
+
 #ifndef SWEET_MATH_SCALAR_IPP_INCLUDED
 #define SWEET_MATH_SCALAR_IPP_INCLUDED
 
+#include <assert/assert.hpp>
 #include <math.h>
 
 namespace math
 {
 
-const float PI = 3.14159265358979f;
-/**
-*/
+constexpr float PI = 3.14159265358979f;
+
 inline float clamp( float x, float minimum, float maximum )
 {
     return x < minimum ? minimum
-         : x > maximum ? maximum
-         : x
-         ;
+        : x > maximum ? maximum
+        : x
+    ;
 }
 
 inline float lerp( float x, float y, float t )

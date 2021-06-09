@@ -1,7 +1,7 @@
 
-for _, toolset in toolsets('cc_.*') do
+for _, toolset in toolsets('cc.*') do
     toolset:all {
-        toolset:StaticLibrary '${lib}/math_lua_${architecture}' {
+        toolset:StaticLibrary '${lib}/math_lua_${platform}_${architecture}' {
             toolset:Cxx '${obj}/%1' {
                 'LuaMat4x4.cpp',
                 'LuaMath.cpp',

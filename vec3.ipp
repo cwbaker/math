@@ -1,9 +1,15 @@
+//
+// vec3.ipp
+// Copyright (c) Charles Baker.  All rights reserved.
+//
+
 #ifndef SWEET_MATH_VEC3_IPP_INCLUDED
 #define SWEET_MATH_VEC3_IPP_INCLUDED
 
 #include "vec3.hpp"
 #include "vec2.ipp"
 #include "vec4.ipp"
+#include <assert/assert.hpp>
 #include <float.h>
 #include <math.h>
 #include <algorithm>
@@ -151,7 +157,7 @@ inline vec3 rgb_from_hsv( const vec3& hsv )
             break;
             
         default:
-            // SWEET_ASSERT( false );
+            SWEET_ASSERT( false );
             break;
     }
     return rgb;
@@ -202,7 +208,7 @@ inline vec3 rgb_from_hsl( const vec3& hsl )
             break;
             
         default:
-            // SWEET_ASSERT( false );
+            SWEET_ASSERT( false );
             break;
     }
     return rgb;
@@ -234,7 +240,7 @@ inline vec3 normalize( const vec3& v )
 
 inline vec3 lerp( const vec3& v0, const vec3& v1, float t )
 {
-    // SWEET_ASSERT( t >= 0.0f && t <= 1.0f );
+    SWEET_ASSERT( t >= 0.0f && t <= 1.0f );
     return vec3(
         v0.x + (v1.x - v0.x) * t,
         v0.y + (v1.y - v0.y) * t,
@@ -257,6 +263,25 @@ inline vec3 ceil( const vec3& v0 )
     return vec3( ceilf(v0.x), ceilf(v0.y), ceilf(v0.z) );
 }
 
+/**
+// Intersect the line \e o in \e d with the plane at \e p with normal \e n.
+//
+// @param p
+//  A point on the plane.
+//
+// @param n
+//  The normal to the plane.
+//
+// @param o
+//  The origin of the line.
+//
+// @param d
+//  The direction of the line.
+//
+// @return
+//  The parameter along the direction of the intersection point or FLT_MAX if
+//  the line is parallel to the plane.
+*/
 inline float intersect_line_plane( const vec3& p, const vec3& n, const vec3& o, const vec3& d )
 {
     return dot( d, n ) != 0.0f ? (dot(p, n) - dot(o, n)) / dot(d, n) : FLT_MAX;

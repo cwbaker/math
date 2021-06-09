@@ -1,6 +1,6 @@
 //
 // quat.ipp
-// Copyright (c) Charles Baker. All rights reserved.
+// Copyright (c) Charles Baker.  All rights reserved.
 //
 
 #ifndef SWEET_MATH_QUAT_IPP_INCLUDED

@@ -10,10 +10,28 @@
 #include <lua.hpp>
 #include <stddef.h>
 
-using namespace sweet;
 using namespace math;
 
 const char* math::QUAT = "quat";
+
+namespace math
+{
+
+static int quat_x( lua_State* lua_state );
+static int quat_y( lua_State* lua_state );
+static int quat_z( lua_State* lua_state );
+static int quat_w( lua_State* lua_state );
+static int quat_xyzw( lua_State* lua_state );
+static int quat_identity( lua_State* lua_state );
+static int quat_axis_angle( lua_State* lua_state );
+static int quat_add( lua_State* lua_state );
+static int quat_multiply( lua_State* lua_state );
+static int quat_scale( lua_State* lua_state );
+static int quat_slerp( lua_State* lua_state );
+static int quat_normalize( lua_State* lua_state );
+static int quat_dot( lua_State* lua_state );
+
+}
 
 void math::quat_openlib( lua_State* lua_state )
 {
@@ -34,19 +52,23 @@ void math::quat_openlib( lua_State* lua_state )
         { "multiply", &quat_multiply },
         { nullptr, nullptr }
     };
-    lua_newtable( lua_state );
-    luaL_setfuncs( lua_state, functions, 0 );
-    lua_setglobal( lua_state, QUAT );
 
     const luaL_Reg metatable_functions[] =
     {
         { "__add", &quat_add },
         { "__mul", &quat_multiply }
     };
+
+    // Create the quat prototype.
+    lua_newtable( lua_state );
+    luaL_setfuncs( lua_state, functions, 0 );
+    lua_setglobal( lua_state, QUAT );
+
+    // Create the quat metatable.
     luaL_newmetatable( lua_state, QUAT );
     luaL_setfuncs( lua_state, metatable_functions, 0 );
     lua_getglobal( lua_state, QUAT );
-    lua_setfield( lua_state, -1, "__index" );
+    lua_setfield( lua_state, -2, "__index" );
     lua_pop( lua_state, 1 );
 }
 
@@ -58,31 +80,41 @@ int math::quat_push( lua_State* lua_state, const math::quat& q )
     return 1;
 }
 
+const math::quat& math::quat_to( lua_State* lua_state, int index )
+{
+    return *reinterpret_cast<const quat*>( luaL_checkudata(lua_state, index, QUAT) );
+}
+
+const math::quat* math::quat_test( lua_State* lua_state, int index )
+{
+    return reinterpret_cast<const quat*>( luaL_testudata(lua_state, index, QUAT) );
+}
+
 int math::quat_x( lua_State* lua_state )
 {
-    const quat* q = reinterpret_cast<const quat*>( luaL_checkudata(lua_state, 1, QUAT) );
-    lua_pushnumber( lua_state, q->x );
+    const quat& q = quat_to( lua_state, 1 );
+    lua_pushnumber( lua_state, q.x );
     return 1;
 }
 
 int math::quat_y( lua_State* lua_state )
 {
-    const quat* q = reinterpret_cast<const quat*>( luaL_checkudata(lua_state, 1, QUAT) );
-    lua_pushnumber( lua_state, q->y );
+    const quat& q = quat_to( lua_state, 1 ) ;
+    lua_pushnumber( lua_state, q.y );
     return 1;
 }
 
 int math::quat_z( lua_State* lua_state )
 {
-    const quat* q = reinterpret_cast<const quat*>( luaL_checkudata(lua_state, 1, QUAT) );
-    lua_pushnumber( lua_state, q->z );
+    const quat& q = quat_to( lua_state, 1 );
+    lua_pushnumber( lua_state, q.z );
     return 1;
 }
 
 int math::quat_w( lua_State* lua_state )
 {
-    const quat* q = reinterpret_cast<const quat*>( luaL_checkudata(lua_state, 1, QUAT) );
-    lua_pushnumber( lua_state, q->w );
+    const quat& q = quat_to( lua_state, 1 );
+    lua_pushnumber( lua_state, q.w );
     return 1;
 }
 
@@ -102,50 +134,50 @@ int math::quat_identity( lua_State* lua_state )
 
 int math::quat_axis_angle( lua_State* lua_state )
 {
-    const vec3* axis = reinterpret_cast<const vec3*>( luaL_checkudata(lua_state, 1, VEC3) );
+    const vec3& axis = vec3_to( lua_state, 1 );
     float angle = luaL_checknumber( lua_state, 2 );
-    return quat_push( lua_state, quat(*axis, angle) );
+    return quat_push( lua_state, quat(axis, angle) );
 }
 
 int math::quat_add( lua_State* lua_state )
 {
-    const math::quat* q0 = reinterpret_cast<const quat*>( luaL_checkudata(lua_state, 1, QUAT) );
-    const math::quat* q1 = reinterpret_cast<const quat*>( luaL_checkudata(lua_state, 2, QUAT) );
-    return quat_push( lua_state, *q0 + *q1 );
+    const math::quat& q0 = quat_to( lua_state, 1 );
+    const math::quat& q1 = quat_to( lua_state, 2 );
+    return quat_push( lua_state, q0 + q1 );
 }
 
 int math::quat_multiply( lua_State* lua_state )
 {
-    const math::quat* q0 = reinterpret_cast<const quat*>( luaL_checkudata(lua_state, 1, QUAT) );
-    const math::quat* q1 = reinterpret_cast<const quat*>( luaL_checkudata(lua_state, 2, QUAT) );
-    return quat_push( lua_state, *q0 * *q1 );
+    const math::quat& q0 = quat_to( lua_state, 1 );
+    const math::quat& q1 = quat_to( lua_state, 2 );
+    return quat_push( lua_state, q0 * q1 );
 }
 
 int math::quat_scale( lua_State* lua_state )
 {
     float scalar = luaL_checknumber( lua_state, 1 );
-    const math::quat* q0 = reinterpret_cast<const quat*>( luaL_checkudata(lua_state, 2, QUAT) );
-    return quat_push( lua_state, scalar * *q0 );
+    const math::quat& q0 = quat_to( lua_state, 2 );
+    return quat_push( lua_state, scalar * q0 );
 }
 
 int math::quat_slerp( lua_State* lua_state )
 {
-    const math::quat* q0 = reinterpret_cast<const quat*>( luaL_checkudata(lua_state, 1, QUAT) );
-    const math::quat* q1 = reinterpret_cast<const quat*>( luaL_checkudata(lua_state, 2, QUAT) );
+    const math::quat& q0 = quat_to( lua_state, 1 );
+    const math::quat& q1 = quat_to( lua_state, 2 );
     float t = luaL_checknumber( lua_state, 3 );
-    return quat_push( lua_state, math::slerp(*q0, *q1, clamp(t, 0.0f, 1.0f)) );
+    return quat_push( lua_state, slerp(q0, q1, clamp(t, 0.0f, 1.0f)) );
 }
 
 int math::quat_normalize( lua_State* lua_state )
 {
-    const math::quat* q0 = reinterpret_cast<const quat*>( luaL_checkudata(lua_state, 1, QUAT) );
-    return quat_push( lua_state, math::normalize(*q0) );
+    const quat& q0 = quat_to( lua_state, 1 );
+    return quat_push( lua_state, normalize(q0) );
 }
 
 int math::quat_dot( lua_State* lua_state )
 {
-    const math::quat* q0 = reinterpret_cast<const quat*>( luaL_checkudata(lua_state, 1, QUAT) );
-    const math::quat* q1 = reinterpret_cast<const quat*>( luaL_checkudata(lua_state, 2, QUAT) );
-    lua_pushnumber( lua_state, math::dot(*q0, *q1) );
+    const math::quat& q0 = quat_to( lua_state, 1 );
+    const math::quat& q1 = quat_to( lua_state, 2 );
+    lua_pushnumber( lua_state, dot(q0, q1) );
     return 1;
 }

@@ -1,17 +1,14 @@
 
-for _, toolset in toolsets('cc_.*') do
-    toolset:all {
-        toolset:Executable '${bin}/math_test' {
-            '${lib}/UnitTest++_${architecture}';
-
-            toolset:Cxx '${obj}/%1' {
-                'main.cpp',
-                'TestMat4x4.cpp',
-                'TestQuat.cpp',
-                'TestVec2.cpp',
-                'TestVec3.cpp',
-                'TestVec4.cpp',
-            };
+for _, cc in toolsets( '^cc.*' ) do
+    cc:StaticLibrary '${lib}/math_test_${platform}_${architecture}' {
+        '${lib}/assert_${platform}_${architecture}';
+        '${lib}/UnitTest++_${platform}_${architecture}';
+        cc:Cxx '${obj}/%1' {
+            'TestMat4x4.cpp';
+            'TestQuat.cpp';
+            'TestVec2.cpp';
+            'TestVec3.cpp';
+            'TestVec4.cpp';
         };
     };
 end
