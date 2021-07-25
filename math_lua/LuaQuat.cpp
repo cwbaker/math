@@ -120,10 +120,10 @@ int math::quat_w( lua_State* lua_state )
 
 int math::quat_xyzw( lua_State* lua_state )
 {
-    float x = luaL_optnumber( lua_state, 1, 0.0f );
-    float y = luaL_optnumber( lua_state, 2, 0.0f );
-    float z = luaL_optnumber( lua_state, 3, 0.0f );
-    float w = luaL_optnumber( lua_state, 4, 1.0f );
+    float x = float( luaL_optnumber(lua_state, 1, 0.0f) );
+    float y = float( luaL_optnumber(lua_state, 2, 0.0f) );
+    float z = float( luaL_optnumber(lua_state, 3, 0.0f) );
+    float w = float( luaL_optnumber(lua_state, 4, 1.0f) );
     return quat_push( lua_state, math::quat(x, y, z, w) );
 }
 
@@ -135,7 +135,7 @@ int math::quat_identity( lua_State* lua_state )
 int math::quat_axis_angle( lua_State* lua_state )
 {
     const vec3& axis = vec3_to( lua_state, 1 );
-    float angle = luaL_checknumber( lua_state, 2 );
+    float angle = float( luaL_checknumber(lua_state, 2) );
     return quat_push( lua_state, quat(axis, angle) );
 }
 
@@ -155,7 +155,7 @@ int math::quat_multiply( lua_State* lua_state )
 
 int math::quat_scale( lua_State* lua_state )
 {
-    float scalar = luaL_checknumber( lua_state, 1 );
+    float scalar = float( luaL_checknumber(lua_state, 1) );
     const math::quat& q0 = quat_to( lua_state, 2 );
     return quat_push( lua_state, scalar * q0 );
 }
@@ -164,7 +164,7 @@ int math::quat_slerp( lua_State* lua_state )
 {
     const math::quat& q0 = quat_to( lua_state, 1 );
     const math::quat& q1 = quat_to( lua_state, 2 );
-    float t = luaL_checknumber( lua_state, 3 );
+    float t = float( luaL_checknumber(lua_state, 3) );
     return quat_push( lua_state, slerp(q0, q1, clamp(t, 0.0f, 1.0f)) );
 }
 

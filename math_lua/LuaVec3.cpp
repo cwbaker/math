@@ -125,9 +125,9 @@ int math::vec3_z( lua_State* lua_state )
 
 int math::vec3_xyz( lua_State* lua_state )
 {
-    float x = luaL_optnumber( lua_state, 1, 0.0f );
-    float y = luaL_optnumber( lua_state, 2, 0.0f );
-    float z = luaL_optnumber( lua_state, 3, 0.0f );
+    float x = float( luaL_optnumber(lua_state, 1, 0.0f) );
+    float y = float( luaL_optnumber(lua_state, 2, 0.0f) );
+    float z = float( luaL_optnumber(lua_state, 3, 0.0f) );
     return vec3_push( lua_state, vec3(x, y, z) );
 }
 
@@ -165,12 +165,12 @@ int math::vec3_multiply( lua_State* lua_state )
     }
     else if ( v1 )
     {
-        float scalar = luaL_checknumber( lua_state, 1 );
+        float scalar = float( luaL_checknumber(lua_state, 1) );
         return vec3_push( lua_state, scalar * *v1 );
     }
     else if ( v0 )
     {
-        float scalar = luaL_checknumber( lua_state, 2 );
+        float scalar = float( luaL_checknumber(lua_state, 2) );
         return vec3_push( lua_state, scalar * *v0 );
     }
     return luaL_error( lua_state, "invalid arguments to vec3 multiply (expecting vec3 or number)" );
@@ -179,7 +179,7 @@ int math::vec3_multiply( lua_State* lua_state )
 int math::vec3_divide( lua_State* lua_state )
 {
     const vec3& v0 = vec3_to( lua_state, 1 );
-    float scalar = luaL_checknumber( lua_state, 2 );
+    float scalar = float( luaL_checknumber(lua_state, 2) );
     return vec3_push( lua_state, v0 / scalar );
 }
 
@@ -193,7 +193,7 @@ int math::vec3_lerp( lua_State* lua_state )
 {
     const vec3& v0 = vec3_to( lua_state, 1 );
     const vec3& v1 = vec3_to( lua_state, 2 );
-    float t = clamp( luaL_checknumber(lua_state, 3), 0.0f, 1.0f );
+    float t = clamp( float(luaL_checknumber(lua_state, 3)), 0.0f, 1.0f );
     return vec3_push( lua_state, lerp(v0, v1, t) );
 }
 

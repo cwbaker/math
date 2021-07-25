@@ -160,25 +160,25 @@ int math::mat4x4_rotate( lua_State* lua_state )
 
 int math::mat4x4_translate( lua_State* lua_state )
 {
-    float tx = luaL_checknumber( lua_state, 1 );
-    float ty = luaL_checknumber( lua_state, 2 );
-    float tz = luaL_checknumber( lua_state, 3 );
+    float tx = float( luaL_checknumber(lua_state, 1) );
+    float ty = float( luaL_checknumber(lua_state, 2) );
+    float tz = float( luaL_checknumber(lua_state, 3) );
     return mat4x4_push( lua_state, translate(tx, ty, tz) );
 }
 
 int math::mat4x4_scale( lua_State* lua_state )
 {
-    float sx = luaL_checknumber( lua_state, 1 );
-    float sy = luaL_checknumber( lua_state, 2 );
-    float sz = luaL_checknumber( lua_state, 3 );
+    float sx = float( luaL_checknumber(lua_state, 1) );
+    float sy = float( luaL_checknumber(lua_state, 2) );
+    float sz = float( luaL_checknumber(lua_state, 3) );
     return mat4x4_push( lua_state, math::scale(sx, sy, sz) );
 }
 
 int math::mat4x4_shear( lua_State* lua_state )
 {
-    float hx = luaL_checknumber( lua_state, 1 );
-    float hy = luaL_checknumber( lua_state, 2 );
-    float hz = luaL_checknumber( lua_state, 3 );
+    float hx = float( luaL_checknumber(lua_state, 1) );
+    float hy = float( luaL_checknumber(lua_state, 2) );
+    float hz = float( luaL_checknumber(lua_state, 3) );
     return mat4x4_push( lua_state, shear(hx, hy, hz) );
 }
 

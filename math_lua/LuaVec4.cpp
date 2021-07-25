@@ -133,10 +133,10 @@ int math::vec4_w( lua_State* lua_state )
 
 int math::vec4_xyzw( lua_State* lua_state )
 {
-    float x = luaL_optnumber( lua_state, 1, 0.0f );
-    float y = luaL_optnumber( lua_state, 2, 0.0f );
-    float z = luaL_optnumber( lua_state, 3, 0.0f );
-    float w = luaL_optnumber( lua_state, 4, 0.0f );
+    float x = float( luaL_optnumber(lua_state, 1, 0.0f) );
+    float y = float( luaL_optnumber(lua_state, 2, 0.0f) );
+    float z = float( luaL_optnumber(lua_state, 3, 0.0f) );
+    float w = float( luaL_optnumber(lua_state, 4, 0.0f) );
     return vec4_push( lua_state, vec4(x, y, z, w) );
 }
 
@@ -148,10 +148,10 @@ int math::vec4_srgb( lua_State* lua_state )
         return vec4_push( lua_state, srgb(*rgba) );
     }
 
-    float red = luaL_optnumber( lua_state, 1, static_cast<lua_Number>(1.0f) );
-    float green = luaL_optnumber( lua_state, 2, static_cast<lua_Number>(1.0f) );
-    float blue = luaL_optnumber( lua_state, 3, static_cast<lua_Number>(1.0f) );
-    float alpha = luaL_optnumber( lua_state, 4, static_cast<lua_Number>(1.0f) );
+    float red = float(luaL_optnumber(lua_state, 1, static_cast<lua_Number>(1.0f)) );
+    float green = float(luaL_optnumber(lua_state, 2, static_cast<lua_Number>(1.0f)) );
+    float blue = float(luaL_optnumber(lua_state, 3, static_cast<lua_Number>(1.0f)) );
+    float alpha = float(luaL_optnumber(lua_state, 4, static_cast<lua_Number>(1.0f)) );
     return vec4_push( lua_state, srgb(vec4(red, green, blue, alpha)) );
 }
 
@@ -189,12 +189,12 @@ int math::vec4_multiply( lua_State* lua_state )
     }
     else if ( v1 )
     {
-        float scalar = luaL_checknumber( lua_state, 1 );
+        float scalar = float( luaL_checknumber(lua_state, 1) );
         return vec4_push( lua_state, scalar * *v1 );
     }
     else if ( v0 )
     {
-        float scalar = luaL_checknumber( lua_state, 2 );
+        float scalar = float( luaL_checknumber(lua_state, 2) );
         return vec4_push( lua_state, scalar * *v0 );
     }
     return luaL_error( lua_state, "invalid arguments to vec4 multiply (expecting vec4 or number)" );
@@ -203,7 +203,7 @@ int math::vec4_multiply( lua_State* lua_state )
 int math::vec4_divide( lua_State* lua_state )
 {
     const vec4& v0 = vec4_to( lua_state, 1 );
-    float scalar = luaL_checknumber( lua_state, 2 );
+    float scalar = float( luaL_checknumber(lua_state, 2) );
     return vec4_push( lua_state, v0 / scalar );
 }
 
@@ -217,7 +217,7 @@ int math::vec4_lerp( lua_State* lua_state )
 {
     const vec4& v0 = vec4_to( lua_state, 1 );
     const vec4& v1 = vec4_to( lua_state, 2 );
-    float t = clamp( luaL_checknumber(lua_state, 3), 0.0f, 1.0f );
+    float t = clamp( float(luaL_checknumber(lua_state, 3)), 0.0f, 1.0f );
     return vec4_push( lua_state, lerp(v0, v1, t) );
 }
 
@@ -243,13 +243,13 @@ int math::vec4_dot( lua_State* lua_state )
 int math::vec4_transparent( lua_State* lua_state )
 {
     const vec4& color = vec4_to( lua_state, 1 );
-    float alpha = luaL_optnumber( lua_state, 2, 0.0f );
+    float alpha = float( luaL_optnumber(lua_state, 2, 0.0f) );
     return vec4_push( lua_state, vec4(color.x, color.y, color.z, alpha) );
 }
 
 int math::vec4_opaque( lua_State* lua_state )
 {
     const vec4& color = vec4_to( lua_state, 1 );
-    float alpha = luaL_optnumber( lua_state, 2, 1.0f );
+    float alpha = float( luaL_optnumber(lua_state, 2, 1.0f) );
     return vec4_push( lua_state, vec4(color.x, color.y, color.z, alpha) );
 }
