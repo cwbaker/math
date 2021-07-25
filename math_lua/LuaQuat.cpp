@@ -56,7 +56,8 @@ void math::quat_openlib( lua_State* lua_state )
     const luaL_Reg metatable_functions[] =
     {
         { "__add", &quat_add },
-        { "__mul", &quat_multiply }
+        { "__mul", &quat_multiply },
+        { nullptr, nullptr }
     };
 
     // Create the quat prototype.

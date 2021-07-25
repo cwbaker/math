@@ -68,7 +68,8 @@ void math::vec3_openlib( lua_State* lua_state )
         { "__sub", &vec3_subtract },
         { "__mul", &vec3_multiply },
         { "__div", &vec3_divide },
-        { "__unm", &vec3_unary_minus }
+        { "__unm", &vec3_unary_minus },
+        { nullptr, nullptr }
     };
 
     // Create the vec3 prototype.
