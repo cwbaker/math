@@ -5,6 +5,7 @@ for _, cc in toolsets( '^cc.*' ) do
         '${lib}/UnitTest++_${platform}_${architecture}';
         cc:Cxx '${obj}/%1' {
             'TestMat4x4.cpp';
+            'TestRay.cpp';
             'TestQuat.cpp';
             'TestVec2.cpp';
             'TestVec3.cpp';
