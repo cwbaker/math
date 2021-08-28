@@ -6,13 +6,12 @@
 #ifndef SWEET_MATH_SCALAR_IPP_INCLUDED
 #define SWEET_MATH_SCALAR_IPP_INCLUDED
 
+#include "constants.hpp"
 #include <assert/assert.hpp>
 #include <math.h>
 
 namespace math
 {
-
-constexpr float PI = 3.14159265358979f;
 
 inline float clamp( float x, float minimum, float maximum )
 {
