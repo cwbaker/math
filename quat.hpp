@@ -1,10 +1,10 @@
 #ifndef SWEET_MATH_QUAT_HPP_INCLUDED
 #define SWEET_MATH_QUAT_HPP_INCLUDED
 
+#include "vec3.hpp"
+
 namespace math
 {
-
-struct vec3;
 
 /**
 // A quaternion.
@@ -20,7 +20,8 @@ struct quat
     inline quat( float xx, float yy, float zz, float ww );
     inline quat( const vec3& v );
     inline quat( const vec3& axis, float angle );
-    inline float norm() const;    
+    inline float norm() const;
+    inline operator vec3() const;
     template <class Archive> void persist( Archive& archive );
 };
 

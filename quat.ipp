@@ -58,6 +58,13 @@ inline float quat::norm() const
 
 /**
 */
+inline quat::operator vec3() const
+{
+    return vec3( x, y, z );
+}
+
+/**
+*/
 inline quat operator*( const quat& lhs, const quat& rhs )
 {
     return quat(
