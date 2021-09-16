@@ -33,6 +33,7 @@ inline float dot( const quat& lhs, const quat& rhs );
 inline quat conjugate( const quat& q );
 inline quat normalize( const quat& q );
 inline quat slerp( const quat& q0, const quat& q1, float t );
+inline vec3 rotate( const quat& q, const vec3& v );
 
 }
 

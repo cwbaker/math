@@ -140,6 +140,13 @@ inline quat slerp( const quat& q0, const quat& q1, float t )
     return ::sinf( theta * (1.0f - t) ) / ::sinf( theta ) * q0 + ::sinf( theta * t ) / ::sinf( theta ) * q1;
 }
 
+/**
+*/
+inline vec3 rotate( const quat& q, const vec3& v )
+{
+    return conjugate(q) * quat(v) * q;
+}
+
 }
 
 #endif
