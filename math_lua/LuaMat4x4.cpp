@@ -6,6 +6,7 @@
 #include "LuaMat4x4.hpp"
 #include "LuaQuat.hpp"
 #include "LuaVec3.hpp"
+#include "LuaVec4.hpp"
 #include <math/mat4x4.ipp>
 #include <math/quat.ipp>
 #include <math/vec4.ipp>
@@ -136,8 +137,13 @@ int math::mat4x4_subtract( lua_State* lua_state )
 int math::mat4x4_multiply( lua_State* lua_state )
 {
     const mat4x4& m0 = mat4x4_to( lua_state, 1 );
-    const mat4x4& m1 = mat4x4_to( lua_state, 2 );
-    return mat4x4_push( lua_state, m0 * m1 );
+    const mat4x4* m1 = mat4x4_test( lua_state, 2 );
+    if ( m1 )
+    {        
+        return mat4x4_push( lua_state, m0 * (*m1) );
+    }
+    const vec4& v = vec4_to( lua_state, 2 );
+    return vec4_push( lua_state, m0 * v );
 }
 
 int math::mat4x4_inverse( lua_State* lua_state )
