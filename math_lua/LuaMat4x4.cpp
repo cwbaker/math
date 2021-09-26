@@ -163,7 +163,7 @@ int math::mat4x4_rotate( lua_State* lua_state )
     const vec3* axis = vec3_test( lua_state, 1 );
     if ( axis )
     {
-        float angle = luaL_checknumber( lua_state, 2 );
+        float angle = float( luaL_checknumber(lua_state, 2) );
         return mat4x4_push( lua_state, rotate(*axis, angle) );
     }
     const quat& q0 = quat_to( lua_state, 1 );
