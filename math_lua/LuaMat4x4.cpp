@@ -154,7 +154,13 @@ int math::mat4x4_transpose( lua_State* lua_state )
 
 int math::mat4x4_rotate( lua_State* lua_state )
 {
-    const quat& q0 = *reinterpret_cast<const quat*>( luaL_checkudata(lua_state, 1, QUAT) );
+    const vec3* axis = vec3_test( lua_state, 1 );
+    if ( axis )
+    {
+        float angle = luaL_checknumber( lua_state, 2 );
+        return mat4x4_push( lua_state, rotate(*axis, angle) );
+    }
+    const quat& q0 = quat_to( lua_state, 1 );
     return mat4x4_push( lua_state, rotate(q0) );
 }
 
