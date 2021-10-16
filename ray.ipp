@@ -4,10 +4,21 @@
 #include "ray.hpp"
 #include "plane.hpp"
 #include "constants.hpp"
+#include "vec3.ipp"
 #include <cmath>
 
 namespace math
 {
+
+inline ray::ray()
+{
+}
+
+inline ray::ray( const ray& r )
+: o( r.o )
+, n( r.n )
+{    
+}
 
 inline ray::ray( const vec3& oo, const vec3& nn )
 : o( oo )

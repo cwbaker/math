@@ -12,7 +12,10 @@ struct ray
 {
     vec3 o;
     vec3 n;
-    inline ray( const vec3& oo, const vec3& nn );
+
+    inline ray();
+    inline ray( const ray& r );
+    inline ray( const vec3& oo, const vec3& nn );    
     inline vec3 lerp( float t ) const;
 };
 
