@@ -5,6 +5,7 @@ for _, cc in toolsets('^cc.*') do
             cc:Cxx '${obj}/%1' {
                 'LuaMat4x4.cpp',
                 'LuaMath.cpp',
+                'LuaPlane.cpp',
                 'LuaVec2.cpp',
                 'LuaVec3.cpp',
                 'LuaVec4.cpp',
