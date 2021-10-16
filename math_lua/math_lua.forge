@@ -6,6 +6,7 @@ for _, cc in toolsets('^cc.*') do
                 'LuaMat4x4.cpp',
                 'LuaMath.cpp',
                 'LuaPlane.cpp',
+                'LuaRay.cpp',
                 'LuaVec2.cpp',
                 'LuaVec3.cpp',
                 'LuaVec4.cpp',
