@@ -7,9 +7,21 @@
 //
 
 #include "plane.hpp"
+#include "vec3.ipp"
 
 namespace math
 {
+
+inline plane::plane()
+{
+}
+
+inline plane::plane( const plane& p )
+: p( p.p )
+, n( p.n )
+, d( p.d )
+{    
+}
     
 inline plane::plane( const vec3& pp, const vec3& nn, float dd )
 : p( pp )
