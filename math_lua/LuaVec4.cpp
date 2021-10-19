@@ -4,6 +4,7 @@
 //
 
 #include "LuaVec4.hpp"
+#include "LuaVec3.hpp"
 #include <math/vec4.ipp>
 #include <math/scalar.ipp>
 #include <lua.hpp>
@@ -20,6 +21,7 @@ static int vec4_y( lua_State* lua_state );
 static int vec4_z( lua_State* lua_state );
 static int vec4_w( lua_State* lua_state );
 static int vec4_xyzw( lua_State* lua_state );
+static int vec4_vec3( lua_State* lua_state );
 static int vec4_srgb( lua_State* lua_state );
 static int vec4_zero( lua_State* lua_state );
 static int vec4_one( lua_State* lua_state );
@@ -50,6 +52,7 @@ void math::vec4_openlib( lua_State* lua_state )
         { "blue", &vec4_z },
         { "alpha", &vec4_w },
         { "xyzw", &vec4_xyzw },
+        { "vec3", &vec4_vec3 },
         { "srgb", &vec4_srgb },
         { "zero", &vec4_zero },
         { "one", &vec4_one },
@@ -138,6 +141,13 @@ int math::vec4_xyzw( lua_State* lua_state )
     float z = float( luaL_optnumber(lua_state, 3, 0.0f) );
     float w = float( luaL_optnumber(lua_state, 4, 0.0f) );
     return vec4_push( lua_state, vec4(x, y, z, w) );
+}
+
+int math::vec4_vec3( lua_State* lua_state )
+{
+    const vec3& v = vec3_to( lua_state, 1 );
+    float w = float( luaL_optnumber(lua_state, 2, 1.0f) );
+    return vec4_push( lua_state, vec4(v, w) );
 }
 
 int math::vec4_srgb( lua_State* lua_state )
