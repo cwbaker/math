@@ -11,7 +11,7 @@ namespace math
 
 template <class Archive> void quat::persist( Archive& archive )
 {
-    archive.flag( sweet::persist::PERSIST_ANONYMOUS );
+    archive.flag( persist::PERSIST_ANONYMOUS );
     archive.value( "x", x );
     archive.value( "y", y );
     archive.value( "z", z );
@@ -20,14 +20,14 @@ template <class Archive> void quat::persist( Archive& archive )
 
 template <class Archive> void vec2::persist( Archive& archive )
 {
-    archive.flag( sweet::persist::PERSIST_ANONYMOUS );
+    archive.flag( persist::PERSIST_ANONYMOUS );
     archive.value( "x", x );
     archive.value( "y", y );
 }
 
 template <class Archive> void vec3::persist( Archive& archive )
 {
-    archive.flag( sweet::persist::PERSIST_ANONYMOUS );
+    archive.flag( persist::PERSIST_ANONYMOUS );
     archive.value( "x", x );
     archive.value( "y", y );
     archive.value( "z", z );
@@ -35,7 +35,7 @@ template <class Archive> void vec3::persist( Archive& archive )
 
 template <class Archive> void vec4::persist( Archive& archive )
 {
-    archive.flag( sweet::persist::PERSIST_ANONYMOUS );
+    archive.flag( persist::PERSIST_ANONYMOUS );
     archive.value( "x", x );
     archive.value( "y", y );
     archive.value( "z", z );
