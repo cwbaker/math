@@ -9,7 +9,7 @@
 #include "vec3.hpp"
 #include "vec2.ipp"
 #include "vec4.ipp"
-#include <assert/assert.hpp>
+#include <assert.h>
 #include <float.h>
 #include <math.h>
 #include <algorithm>
@@ -157,7 +157,7 @@ inline vec3 rgb_from_hsv( const vec3& hsv )
             break;
             
         default:
-            SWEET_ASSERT( false );
+            assert( false );
             break;
     }
     return rgb;
@@ -208,7 +208,7 @@ inline vec3 rgb_from_hsl( const vec3& hsl )
             break;
             
         default:
-            SWEET_ASSERT( false );
+            assert( false );
             break;
     }
     return rgb;
@@ -240,7 +240,7 @@ inline vec3 normalize( const vec3& v )
 
 inline vec3 lerp( const vec3& v0, const vec3& v1, float t )
 {
-    SWEET_ASSERT( t >= 0.0f && t <= 1.0f );
+    assert( t >= 0.0f && t <= 1.0f );
     return vec3(
         v0.x + (v1.x - v0.x) * t,
         v0.y + (v1.y - v0.y) * t,

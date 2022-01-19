@@ -7,7 +7,7 @@
 #define SWEET_MATH_SCALAR_IPP_INCLUDED
 
 #include "constants.hpp"
-#include <assert/assert.hpp>
+#include <assert.h>
 #include <math.h>
 
 namespace math
@@ -23,13 +23,13 @@ inline float clamp( float x, float minimum, float maximum )
 
 inline float lerp( float x, float y, float t )
 {
-    // SWEET_ASSERT( t >= 0.0f && t <= 1.0f );
+    assert( t >= 0.0f && t <= 1.0f );
     return x + (y - x) * t;
 }
 
 inline float smooth( float t )
 {
-    // SWEET_ASSERT( t >= 0.0f && t <= 1.0f );
+    assert( t >= 0.0f && t <= 1.0f );
     return (1.0f - cosf(t * float(PI))) / 2.0f;
 }
 

@@ -9,7 +9,7 @@
 #include "vec4.hpp"
 #include "vec3.ipp"
 #include "vec2.ipp"
-#include <assert/assert.hpp>
+#include <assert.h>
 #include <math.h>
 
 namespace math
@@ -145,7 +145,7 @@ inline vec4 normalize( const vec4& v )
 
 inline vec4 lerp( const vec4& v0, const vec4& v1, float t )
 {
-    SWEET_ASSERT( t >= 0.0f && t <= 1.0f );
+    assert( t >= 0.0f && t <= 1.0f );
     return vec4(
         v0.x + (v1.x - v0.x) * t,
         v0.y + (v1.y - v0.y) * t,
