@@ -15,7 +15,10 @@ struct vec2
     float x;
     float y;
 
-    inline vec2();
+    inline vec2() = default;
+    inline vec2( const vec2& ) = default;
+    inline vec2& operator=( const vec2& ) = default;
+    inline ~vec2() = default;
     inline vec2( float xy );
     inline vec2( float xx, float yy );
     inline vec2( const vec3& v );    

@@ -17,10 +17,6 @@
 namespace math
 {
 
-inline vec3::vec3()
-{
-}
-
 inline vec3::vec3( float xx, float yy, float zz )
 : x( xx ),
   y( yy ),

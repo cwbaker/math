@@ -15,10 +15,6 @@
 namespace math
 {
 
-inline vec4::vec4()
-{
-}
-
 inline vec4::vec4( float xyzw )
 : x( xyzw ),
   y( xyzw ),

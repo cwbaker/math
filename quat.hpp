@@ -16,7 +16,10 @@ struct quat
     float z;
     float w;
 
-    inline quat();
+    inline quat() = default;
+    inline quat( const quat& ) = default;
+    inline quat& operator=( const quat& ) = default;
+    inline ~quat() = default;
     inline quat( float xx, float yy, float zz, float ww );
     inline quat( const vec3& v );
     inline quat( const vec3& axis, float angle );

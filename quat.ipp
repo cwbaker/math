@@ -15,12 +15,6 @@ namespace math
 
 /**
 */
-inline quat::quat()
-{
-}
-
-/**
-*/
 inline quat::quat( float xx, float yy, float zz, float ww )
 : x( xx ),
   y( yy ),

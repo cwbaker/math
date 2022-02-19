@@ -18,10 +18,13 @@ struct vec3
     float y;
     float z;
 
-    inline vec3();
+    inline vec3() = default;
+    inline vec3( const vec3& ) = default;
+    inline vec3& operator=( const vec3& ) = default;
+    inline ~vec3() = default;
     inline vec3( float xx, float yy, float zz );
     explicit inline vec3( float xyz );
-    explicit inline vec3( const vec4& v );    
+    explicit inline vec3( const vec4& v );
     vec3& operator+=( const vec3& v );
     vec3& operator*=( const vec3& v );
     vec3 operator-() const;

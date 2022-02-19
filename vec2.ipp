@@ -15,10 +15,6 @@
 namespace math
 {
 
-inline vec2::vec2()
-{
-}
-
 inline vec2::vec2( float xy )
 : x( xy ),
   y( xy )

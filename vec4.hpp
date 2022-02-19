@@ -17,7 +17,10 @@ struct vec4
     float z;
     float w;
 
-    inline vec4();
+    inline vec4() = default;
+    inline vec4( const vec4& ) = default;
+    inline vec4& operator=( const vec4& ) = default;
+    inline ~vec4() = default;
     inline vec4( float xyzw );
     inline vec4( float xx, float yy, float zz, float ww );
     inline vec4( const vec2& v, float zz, float ww );

@@ -14,15 +14,6 @@
 namespace math
 {
 
-/**
-// Constructor.
-//
-// The elements of the matrix are left uninitialized.
-*/
-inline mat4x4::mat4x4()
-{
-}
-
 inline mat4x4::mat4x4( float mij )
 {
     m[0] = mij;
