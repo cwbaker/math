@@ -4,6 +4,7 @@
 //
 
 #include "LuaVec3.hpp"
+#include "LuaVec2.hpp"
 #include <math/vec3.ipp>
 #include <math/scalar.ipp>
 #include <lua.hpp>
@@ -19,6 +20,7 @@ static int vec3_x( lua_State* lua_state );
 static int vec3_y( lua_State* lua_state );
 static int vec3_z( lua_State* lua_state );
 static int vec3_xyz( lua_State* lua_state );
+static int vec3_vec2( lua_State* lua_state );
 static int vec3_zero( lua_State* lua_state );
 static int vec3_one( lua_State* lua_state );
 static int vec3_add( lua_State* lua_state );
@@ -45,6 +47,7 @@ void math::vec3_openlib( lua_State* lua_state )
         { "y", &vec3_y },
         { "z", &vec3_z },
         { "xyz", &vec3_xyz },
+        { "vec2", &vec3_vec2 },
         { "zero", &vec3_zero },
         { "one", &vec3_one },
         { "lerp", &vec3_lerp },
@@ -130,6 +133,13 @@ int math::vec3_xyz( lua_State* lua_state )
     float y = float( luaL_optnumber(lua_state, 2, 0.0f) );
     float z = float( luaL_optnumber(lua_state, 3, 0.0f) );
     return vec3_push( lua_state, vec3(x, y, z) );
+}
+
+int math::vec3_vec2( lua_State* lua_state )
+{
+    const vec2& v = vec2_to( lua_state, 1 );
+    float z = float( luaL_optnumber(lua_state, 2, 0.0f) );
+    return vec3_push( lua_state, vec3(v, z) );
 }
 
 int math::vec3_zero( lua_State* lua_state )
