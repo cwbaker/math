@@ -38,6 +38,13 @@ inline vec3::vec3( const vec4& v )
 {
 }
 
+inline vec3::vec3( const vec2& v, float zz )
+: x( v.x )
+, y( v.y )
+, z( zz )
+{
+}
+
 inline vec3& vec3::operator+=( const vec3& v )
 {
     x += v.x;

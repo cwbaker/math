@@ -25,6 +25,7 @@ struct vec3
     inline vec3( float xx, float yy, float zz );
     explicit inline vec3( float xyz );
     explicit inline vec3( const vec4& v );
+    inline vec3( const vec2& v, float zz );
     vec3& operator+=( const vec3& v );
     vec3& operator*=( const vec3& v );
     vec3 operator-() const;
