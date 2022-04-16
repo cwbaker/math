@@ -28,6 +28,7 @@ static int vec2_unary_minus( lua_State* lua_state );
 static int vec2_lerp( lua_State* lua_state );
 static int vec2_normalize( lua_State* lua_state );
 static int vec2_length( lua_State* lua_state );
+static int vec2_dot( lua_State* lua_state );
 
 }
 
@@ -43,6 +44,7 @@ void math::vec2_openlib( lua_State* lua_state )
         { "lerp", &vec2_lerp },
         { "normalize", &vec2_normalize },
         { "length", &vec2_length },
+        { "dot", &vec2_dot },
         { "add", &vec2_add },
         { "subtract", &vec2_subtract },
         { "multiply", &vec2_multiply },
@@ -188,4 +190,12 @@ int math::vec2_length( lua_State* lua_state )
 {
     const vec2& v = vec2_to( lua_state, 1 );
     return vec2_push( lua_state, length(v) );
+}
+
+int math::vec2_dot( lua_State* lua_state )
+{
+    const vec2& v0 = vec2_to( lua_state, 1 );
+    const vec2& v1 = vec2_to( lua_state, 2 );
+    lua_pushnumber( lua_state, dot(v0, v1) );
+    return 1;  
 }
