@@ -2,8 +2,9 @@
 variant = variant or 'debug';
 version = version or ('%s %s %s'):format(os.date('%Y.%m.%d %H:%M:%S'), platform, variant );
 
-local forge = require 'forge.cc' {
-    identifier = 'cc_${platform}_${architecture}';
+local forge = require( 'forge' ):load( variant );
+
+local cc = forge.Toolset 'cc_${platform}_${architecture}' {
     platform = forge:operating_system();
     bin = forge:root( ('%s/bin'):format(variant) );
     lib = forge:root( ('%s/lib'):format(variant) );
@@ -23,6 +24,8 @@ local forge = require 'forge.cc' {
         xcodeproj = forge:root( 'math.xcodeproj' );
     };
 };
+
+cc:install( 'forge.cc' );
 
 buildfile 'math.forge';
 buildfile 'src/lua/lua.forge';
