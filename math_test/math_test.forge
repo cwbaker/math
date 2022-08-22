@@ -3,6 +3,7 @@ for _, cc in toolsets( '^cc.*' ) do
     cc:StaticLibrary '${lib}/math_test_${platform}_${architecture}' {
         '${lib}/assert_${platform}_${architecture}';
         '${lib}/UnitTest++_${platform}_${architecture}';
+        whole_archive = true;
         cc:Cxx '${obj}/%1' {
             'TestMat4x4.cpp';
             'TestRay.cpp';
