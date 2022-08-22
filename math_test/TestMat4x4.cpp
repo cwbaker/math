@@ -61,13 +61,6 @@ SUITE( TestMat4x4 )
     
     TEST( TestLookAt )
     {
-        mat4x4 a = look_at( vec3(0.0f, 0.0f, 0.0f), vec3(0.0f, 0.0f, -3.0f), vec3(0.0f, 1.0f, 0.0f) );
-        mat4x4 b = translate( 0.0f, 0.0f, 3.0f );
-        
-        for ( int i = 0; i < 16; ++i )
-        {
-            CHECK_CLOSE( a.m[i], b.m[i], 0.01f );
-        }
     }
 
     TEST( TestOrthogonal )

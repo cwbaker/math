@@ -16,7 +16,7 @@ SUITE( Ray )
     TEST( ValidRayPlaneIntersect )
     {
         ray ray( vec3(0.0f, 1.0f, 0.0f), vec3(0.0f, -1.0f, 0.0f) );
-        plane plane( vec3(0.0f, 0.0f, 0.0f), vec3(0.0f, 1.0f, 0.0f), 1.0f );
+        plane plane( vec3(0.0f, 0.0f, 0.0f), vec3(0.0f, 1.0f, 0.0f), 0.0f );
         float t = intersect( ray, plane );
         CHECK( t != INFINITY );
         CHECK_CLOSE( length(ray.lerp(t) - vec3(0.0f, 0.0f, 0.0f)), 0.0f, EPSILON );
