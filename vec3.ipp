@@ -266,6 +266,18 @@ inline vec3 ceil( const vec3& v0 )
     return vec3( ceilf(v0.x), ceilf(v0.y), ceilf(v0.z) );
 }
 
+inline vec3 min( const vec3& v0, const vec3& v1 )
+{
+    using std::min;
+    return vec3( min(v0.x, v1.x), min(v0.y, v1.y), min(v0.z, v1.z) );
+}
+
+inline vec3 max( const vec3& v0, const vec3& v1 )
+{
+    using std::max;
+    return vec3( max(v0.x, v1.x), max(v0.y, v1.y), max(v0.z, v1.z) );
+}
+
 /**
 // Intersect the line \e o in \e d with the plane at \e p with normal \e n.
 //
