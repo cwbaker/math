@@ -34,6 +34,9 @@ static int vec3_length( lua_State* lua_state );
 static int vec3_dot( lua_State* lua_state );
 static int vec3_cross( lua_State* lua_state );
 static int vec3_floor( lua_State* lua_state );
+static int vec3_ceil( lua_State* lua_state );
+static int vec3_min( lua_State* lua_state );
+static int vec3_max( lua_State* lua_state );
 static int vec3_rgb_from_hsv( lua_State* lua_state );
 static int vec3_rgb_from_hsl( lua_State* lua_state );
 
@@ -56,6 +59,9 @@ void math::vec3_openlib( lua_State* lua_state )
         { "dot", &vec3_dot },
         { "cross", &vec3_cross },
         { "floor", &vec3_floor },
+        { "ceil", &vec3_ceil },
+        { "min", &vec3_min },
+        { "max", &vec3_max },
         { "rgb_from_hsv", &vec3_rgb_from_hsv },
         { "rgb_from_hsl", &vec3_rgb_from_hsl },
         { "add", &vec3_add },
@@ -239,7 +245,27 @@ int math::vec3_cross( lua_State* lua_state )
 int math::vec3_floor( lua_State* lua_state )
 {
     const vec3& v = vec3_to( lua_state, 1 );
-    return vec3_push( lua_state, vec3(floorf(v.x), floorf(v.y), floorf(v.z)) );
+    return vec3_push( lua_state, floor(v) );
+}
+
+int math::vec3_ceil( lua_State* lua_state )
+{
+    const vec3& v = vec3_to( lua_state, 1 );
+    return vec3_push( lua_state, ceil(v) );
+}
+
+int math::vec3_min( lua_State* lua_state )
+{
+    const vec3& v0 = vec3_to( lua_state, 1 );
+    const vec3& v1 = vec3_to( lua_state, 2 );
+    return vec3_push( lua_state, min(v0, v1) );
+}
+
+int math::vec3_max( lua_State* lua_state )
+{
+    const vec3& v0 = vec3_to( lua_state, 1 );
+    const vec3& v1 = vec3_to( lua_state, 2 );
+    return vec3_push( lua_state, max(v0, v1) );
 }
 
 int math::vec3_rgb_from_hsv( lua_State* lua_state )
